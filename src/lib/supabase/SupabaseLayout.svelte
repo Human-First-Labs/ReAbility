@@ -60,10 +60,6 @@
     }
 </script>
 
-<svelte:head>
-	<meta name="description" content="A Web Application for Shareiety" />
-</svelte:head>
-
 {#if !session}
     <div class="cover">
         <div class="popup">
