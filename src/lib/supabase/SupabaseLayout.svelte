@@ -4,6 +4,7 @@
 	import { Turnstile } from 'svelte-turnstile';
 	import type { LayoutProps } from '../../routes/$types';
 	import Text from '$lib/toolkit/Text.svelte';
+	import Cover from '$lib/toolkit/Cover.svelte';
 
 	let { data, children }: LayoutProps = $props();
 	let { session, supabase } = $derived(data);
@@ -63,14 +64,14 @@
 </script>
 
 {#if !session}
-	<div class="cover">
+	<Cover>
 		<div class="popup">
 			<Text variant="h2">Sorry about this!</Text>
 			<Text variant="h4">Just making sure you're not a bot</Text>
 			<Text variant="small">You know how it is these days :(</Text>
 			<Turnstile siteKey={VITE_TURNSTILE_SITE_KEY} on:callback={tokenGetter} />
 		</div>
-	</div>
+	</Cover>
 {:else}
 	<main>
 		{@render children()}
@@ -86,19 +87,6 @@
 		height: 100vh;
 	}
 
-	.cover {
-		display: flex;
-		flex-direction: column;
-		height: 100vh;
-		width: 100vw;
-		justify-content: center;
-		align-items: center;
-		position: absolute;
-		z-index: 5;
-		top: 0;
-		left: 0;
-		background-color: rgba(0, 0, 0, 0.5);
-	}
 	.popup {
 		display: flex;
 		background-color: white;

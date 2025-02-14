@@ -1,15 +1,19 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { fly, slide } from 'svelte/transition';
+	import { slide } from 'svelte/transition';
 	import IconCaret from '~icons/mdi/caret';
+	import IconMenu from '~icons/mdi/menu';
 	import IconButton from './toolkit/IconButton.svelte';
 	import Link from './toolkit/Link.svelte';
 	import Text from './toolkit/Text.svelte';
 	import TargetDiv from './toolkit/TargetDiv.svelte';
 	import { clickOutside } from './toolkit/util';
+	import Cover from './toolkit/Cover.svelte';
 
 	let ready = $state(false);
 	let open = $state<number | null>(null);
+	let sidebar = $state(false);
+	let innerWidth = $state(window.innerWidth);
 
 	onMount(() => (ready = true));
 
@@ -129,21 +133,31 @@
 
 		return ref;
 	};
+
+	$effect(() => {
+		if (innerWidth > 1000) {
+			sidebar = false;
+		}
+	});
 </script>
+
+<svelte:window bind:innerWidth />
 
 {#if ready}
 	<header
 		in:slide={{
 			axis: 'y'
 		}}
-		use:clickOutside={() => (open = null)}
+		use:clickOutside={() => {
+			open = null;
+		}}
 	>
 		<div class="header-items">
 			<div class="left-items">
 				<Link to="/">
 					<Text variant="h3">SCI Able</Text>
 				</Link>
-				<div class="nav-items">
+				<div class={['nav-items', 'hide-on-mobile']}>
 					{#each topbarItems as item, index}
 						<div
 							class={['nav-item', `${index === open ? 'selected' : ''}`]}
@@ -163,8 +177,12 @@
 					{/each}
 				</div>
 			</div>
+			<div class={['right-items', 'show-on-mobile']}>
+				<IconButton onClick={() => (sidebar = !sidebar)}>
+					<IconMenu style="color: var(--primary-color)" />
+				</IconButton>
+			</div>
 		</div>
-		<hr />
 		{#each topbarItems as item, index}
 			{#if item.subItems && index === open}
 				<TargetDiv anchor={getRefById(`nav-item-${index}`)}>
@@ -183,6 +201,21 @@
 				</TargetDiv>
 			{/if}
 		{/each}
+		{#if sidebar}
+			<Cover onClick={() => (sidebar = false)}>
+				<div
+					class={['show-on-mobile', 'sidenav']}
+					in:slide={{ axis: 'x' }}
+					out:slide={{ axis: 'x' }}
+				>
+					{#each topbarItems as item}
+						<Link to={item.url}>
+							<Text variant="small">{item.title}</Text>
+						</Link>
+					{/each}
+				</div>
+			</Cover>
+		{/if}
 	</header>
 {/if}
 
@@ -221,8 +254,11 @@
 		align-items: center;
 	}
 
+	.right-items {
+		align-items: center;
+	}
+
 	.nav-items {
-		display: flex;
 		padding: 0 30px;
 		gap: 25px;
 	}
@@ -247,7 +283,41 @@
 		flex-direction: column;
 	}
 
-	@media (min-width: 720px) {
+	.sidenav {
+		box-sizing: border-box;
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 300px;
+		height: 100vh;
+		background-color: white;
+		border-top-left-radius: 10px;
+		border-bottom-left-radius: 10px;
+		padding: 20px;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		-webkit-box-shadow: -24px 0px 28px -4px rgba(0, 0, 0, 0.2);
+		-moz-box-shadow: -24px 0px 28px -4px rgba(0, 0, 0, 0.2);
+		box-shadow: -24px 0px 28px -4px rgba(0, 0, 0, 0.2);
+	}
+
+	.hide-on-mobile {
+		display: none;
+	}
+	.show-on-mobile {
+		display: flex;
+	}
+
+	@media (min-width: 1000px) {
+		.hide-on-mobile {
+			display: flex;
+		}
+
+		.show-on-mobile {
+			display: none;
+		}
+
 		header {
 			height: var(--topbar-desktop-height);
 		}
