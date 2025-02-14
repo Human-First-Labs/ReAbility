@@ -6,6 +6,7 @@
 	import Link from './toolkit/Link.svelte';
 	import Text from './toolkit/Text.svelte';
 	import TargetDiv from './toolkit/TargetDiv.svelte';
+	import { clickOutside } from './toolkit/util';
 
 	let ready = $state(false);
 	let open = $state<number | null>(null);
@@ -42,20 +43,20 @@
 			]
 		},
 		{
-			title: 'Your Body',
-			url: '/your-body',
+			title: 'Physical Changes',
+			url: '/physical-changes',
 			subItems: [
 				{
 					title: 'Autonomic Dysreflexia (AD)',
-					url: '/your-body/autonomic-dysreflexia'
+					url: '/physical-changes/autonomic-dysreflexia'
 				},
 				{
 					title: 'Bowels & Bladder',
-					url: '/your-body/bowels-bladder'
+					url: '/physical-changes/bowels-bladder'
 				},
 				{
 					title: 'Medical Procedures',
-					url: '/your-body/medical-procedures'
+					url: '/physical-changes/medical-procedures'
 				}
 			]
 		},
@@ -78,38 +79,42 @@
 			url: '/pas-caregivers'
 		},
 		{
-			title: 'Services',
-			url: '/services',
+			title: 'How we can help',
+			url: '/how-we-help',
 			subItems: [
-				// {
-				//     title: 'Custom Equipment Toolbox',
-				//     url: '/services/custom-equipment-toolbox'
-				// },
 				{
 					title: 'Custom Equipment Design',
-					url: '/services/custom-equipment-design'
+					url: '/how-we-help/custom-equipment-design'
 				},
 				{
 					title: 'Accessibility Map',
-					url: '/services/accessibility-map'
+					url: '/how-we-help/accessibility-map'
+				},
+				{
+					title: 'Accessibility Transport',
+					url: '/how-we-help/accessibility-transport'
+				},
+				{
+					title: 'Support Groups',
+					url: '/how-we-help/support-groups'
 				}
 			]
 		},
 		{
-			title: 'How to help',
-			url: '/how-to-help',
+			title: 'How you can help',
+			url: '/how-you-help',
 			subItems: [
 				{
 					title: 'Feedback',
-					url: '/how-to-help/feedback'
+					url: '/how-you-help/feedback'
 				},
 				{
 					title: 'Donate',
-					url: '/how-to-help/donate'
+					url: '/how-you-help/donate'
 				},
 				{
 					title: 'Volunteer',
-					url: '/how-to-help/volunteer'
+					url: '/how-you-help/volunteer'
 				}
 			]
 		}
@@ -131,11 +136,12 @@
 		in:slide={{
 			axis: 'y'
 		}}
+		use:clickOutside={() => (open = null)}
 	>
 		<div class="header-items">
 			<div class="left-items">
 				<Link to="/">
-					<Text variant="h3">Adapt-Able</Text>
+					<Text variant="h3">SCI Able</Text>
 				</Link>
 				<div class="nav-items">
 					{#each topbarItems as item, index}
@@ -162,7 +168,12 @@
 		{#each topbarItems as item, index}
 			{#if item.subItems && index === open}
 				<TargetDiv anchor={getRefById(`nav-item-${index}`)}>
-					<div class="specific-card" in:slide={{ axis: 'y', duration: 800 }}>
+					<!-- svelte-ignore event_directive_deprecated -->
+					<div
+						class="specific-card"
+						in:slide={{ axis: 'y', duration: 800 }}
+						out:slide={{ axis: 'y', duration: 800 }}
+					>
 						{#each item.subItems as subItem}
 							<Link to={subItem.url}>
 								<Text variant="small">{subItem.title}</Text>
@@ -184,6 +195,7 @@
 		height: var(--topbar-mobile-height);
 		width: 100%;
 		align-items: center;
+		transition: all 0.5s;
 	}
 
 	:global(main) {
@@ -192,10 +204,9 @@
 
 	.nav-item {
 		display: flex;
-		align-items: end;
-		gap: 5px;
+		align-items: center;
 		height: '100%';
-		padding: 10px;
+		padding: 5px;
 	}
 
 	.header-items {
@@ -232,7 +243,7 @@
 		border-bottom-left-radius: 10px;
 		padding: 10px;
 		display: flex;
-		gap: 5px;
+		gap: 15px;
 		flex-direction: column;
 	}
 

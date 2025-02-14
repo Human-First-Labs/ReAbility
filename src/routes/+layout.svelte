@@ -6,14 +6,14 @@
 	import Topbar from '$lib/Topbar.svelte';
 	import Footer from '$lib/Footer.svelte';
 
-	const appName = 'Adapt-Able';
+	const appName = 'SCI-Able';
 
 	let { children, ...restOfProps }: LayoutProps = $props();
 </script>
 
 <svelte:head>
 	<title>{appName}</title>
-	<meta name="description" content="The Adapt-Able Web App" />
+	<meta name="description" content={`The ${appName} website`} />
 </svelte:head>
 
 <SupabaseLayout {...restOfProps}>

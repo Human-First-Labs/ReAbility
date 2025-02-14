@@ -1,5 +1,5 @@
 {
-	"name": "adapt-able",
+	"name": "sci-able",
 	"private": true,
 	"version": "0.0.1",
 	"type": "module",
@@ -26,7 +26,7 @@
 		"eslint-plugin-svelte": "2.46.1",
 		"globals": "15.15.0",
 		"npm-check": "6.0.1",
-		"prettier": "3.5.0",
+		"prettier": "3.5.1",
 		"prettier-plugin-svelte": "3.3.3",
 		"svelte": "5.20.0",
 		"svelte-check": "4.1.4",
@@ -35,10 +35,10 @@
 		"vite": "6.1.0"
 	},
 	"dependencies": {
+		"@iconify-json/mdi": "1.2.3",
 		"@supabase/ssr": "0.5.2",
 		"@supabase/supabase-js": "2.48.1",
 		"svelte-turnstile": "0.10.0",
-		"@iconify-json/mdi": "1.2.3",
 		"unplugin-icons": "22.0.0"
 	}
 }

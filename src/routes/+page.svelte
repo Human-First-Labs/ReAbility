@@ -1,13 +1,27 @@
 <script lang="ts">
+	import Content from '$lib/Content.svelte';
+	import Text from '$lib/toolkit/Text.svelte';
 </script>
 
-<section>
-	<h1>Hi!</h1>
-</section>
-
-<style>
-	section {
-		display: flex;
-		flex: 0.6;
-	}
-</style>
+<Content>
+	<Text variant="h1">Home</Text>
+	<Text variant="h1">Home</Text>
+	<Text variant="h1">Home</Text>
+	<Text variant="h1">Home</Text>
+	<Text variant="h1">Home</Text>
+	<Text variant="h1">Home</Text>
+	<Text variant="h1">Home</Text>
+	<Text variant="h1">Home</Text>
+	<Text variant="h1">Home</Text>
+	<Text variant="h1">Home</Text>
+	<Text variant="h1">Home</Text>
+	<Text variant="h1">Home</Text>
+	<Text variant="h1">Home</Text>
+	<Text variant="h1">Home</Text>
+	<Text variant="h1">Home</Text>
+	<Text variant="h1">Home</Text>
+	<Text variant="h1">Home</Text>
+	<Text variant="h1">Home</Text>
+	<Text variant="h1">Home</Text>
+	<Text variant="h1">Home</Text>
+</Content>

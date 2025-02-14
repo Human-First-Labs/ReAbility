@@ -72,28 +72,18 @@
 		</div>
 	</div>
 {:else}
-	<div class="app">
-		<main>
-			{@render children()}
-		</main>
-	</div>
+	<main>
+		{@render children()}
+	</main>
 {/if}
 
 <style>
-	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-	}
-
 	main {
-		flex: 1;
 		display: flex;
 		flex-direction: column;
-		width: 100%;
-		max-width: 64rem;
 		margin: 0;
 		box-sizing: border-box;
+		height: 100vh;
 	}
 
 	.cover {
