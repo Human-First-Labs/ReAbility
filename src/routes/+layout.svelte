@@ -1,16 +1,14 @@
 <script lang="ts">
-	import SupabaseLayout from "$lib/supabase/SupabaseLayout.svelte";
-	import type { LayoutProps } from "./$types";
-	import '../lib/default-hfl.css';
-	import Topbar from "$lib/Topbar.svelte";
-	// import { page } from "$app/state";
+	import SupabaseLayout from '$lib/supabase/SupabaseLayout.svelte';
+	import type { LayoutProps } from './$types';
+	import '../lib/toolkit/default-hfl.css';
+	import '../lib/project.css';
+	import Topbar from '$lib/Topbar.svelte';
+	import Footer from '$lib/Footer.svelte';
 
-	const appName = "Adapt-Able";
-	// const { url } = page
+	const appName = 'Adapt-Able';
 
-	// const title = $derived([appName, ...url.pathname.split("/").slice(1)].filter(Boolean).join(" - "))
-
-    let { children, ...restOfProps }: LayoutProps = $props()
+	let { children, ...restOfProps }: LayoutProps = $props();
 </script>
 
 <svelte:head>
@@ -19,6 +17,7 @@
 </svelte:head>
 
 <SupabaseLayout {...restOfProps}>
-	<Topbar/>
+	<Topbar />
 	{@render children()}
+	<Footer />
 </SupabaseLayout>

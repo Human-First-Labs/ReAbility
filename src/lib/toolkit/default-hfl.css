@@ -1,0 +1,18 @@
+:root {
+	--general-font: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	--primary-color: #4a90e2;
+	--secondary-color: #a088f9;
+	--accent-color: #d4af37;
+	--text-color: #5c5c5c;
+	--primary-contrast-color: #f8f8f8;
+	--secondary-contrast-color: #d3d3d3;
+	--background-color: #eeeeee;
+	--error-color: red;
+	--warning-color: orange;
+	--success-color: green;
+}
+
+body {
+	min-height: 100vh;
+	margin: 0;
+}

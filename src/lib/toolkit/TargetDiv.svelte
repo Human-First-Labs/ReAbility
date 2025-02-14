@@ -42,15 +42,24 @@
 		preferredPosition?: TargetDivPosition;
 		/** Anchor Element*/
 		anchor: HTMLElement;
+		/**Match Parent Width */
+		matchParentWidth?: boolean;
 	}
 
 	//------------------------------------------------------------------------------------------------
 
-	const { children, preferredPosition = 'bottom-start', anchor }: Props = $props();
+	const {
+		children,
+		preferredPosition = 'bottom-start',
+		anchor,
+		matchParentWidth = true
+	}: Props = $props();
 
 	let position = $state<Position | null>(null);
 	let checked = $state(false);
 	let ref: HTMLDivElement;
+
+	const targetSizeInfo = anchor.getBoundingClientRect();
 
 	const convertPositionToValues = (
 		targetSizeInfo: DOMRect,
@@ -180,7 +189,6 @@
 	};
 
 	const generatePosition = () => {
-		const targetSizeInfo = anchor.getBoundingClientRect();
 		const mySizeInfo = ref.getBoundingClientRect();
 
 		const myWidth = mySizeInfo.width;
@@ -252,7 +260,7 @@
 <div
 	bind:this={ref}
 	class="target-div"
-	style={`${position?.top ? `top: ${position.top}px;` : ''} ${position?.bottom ? `bottom: ${position.bottom}px;` : ''} ${position?.left ? `left: ${position.left}px;` : ''} ${position?.right ? `right: ${position.right}px;` : ''}`}
+	style={`${position?.top ? `top: ${position.top}px;` : ''} ${position?.bottom ? `bottom: ${position.bottom}px;` : ''} ${position?.left ? `left: ${position.left}px;` : ''} ${position?.right ? `right: ${position.right}px;` : ''} ${matchParentWidth ? `min-width: ${targetSizeInfo.width + 10}px;` : ''}`}
 >
 	{@render children()}
 </div>
@@ -261,7 +269,6 @@
 	.target-div {
 		position: fixed;
 		z-index: 1;
-		min-width: fit-content;
 		min-height: fit-content;
 	}
 

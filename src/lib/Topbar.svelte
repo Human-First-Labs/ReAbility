@@ -128,8 +128,8 @@
 
 {#if ready}
 	<header
-		in:fly={{
-			y: -60
+		in:slide={{
+			axis: 'y'
 		}}
 	>
 		<div class="header-items">
@@ -139,7 +139,10 @@
 				</Link>
 				<div class="nav-items">
 					{#each topbarItems as item, index}
-						<div class="nav-item" id={`nav-item-${index}`}>
+						<div
+							class={['nav-item', `${index === open ? 'selected' : ''}`]}
+							id={`nav-item-${index}`}
+						>
 							<Link to={item.url}>
 								<Text variant="small">{item.title}</Text>
 							</Link>
@@ -151,21 +154,24 @@
 								</IconButton>
 							{/if}
 						</div>
-						{#if item.subItems && index === open}
-							<TargetDiv anchor={getRefById(`nav-item-${index}`)}>
-								<div class="target-div-card" in:slide={{ axis: 'y', duration: 1000 }}>
-									{#each item.subItems as subItem}
-										<Link to={subItem.url}>
-											<Text variant="small">{subItem.title}</Text>
-										</Link>
-									{/each}
-								</div>
-							</TargetDiv>
-						{/if}
 					{/each}
 				</div>
 			</div>
 		</div>
+		<hr />
+		{#each topbarItems as item, index}
+			{#if item.subItems && index === open}
+				<TargetDiv anchor={getRefById(`nav-item-${index}`)}>
+					<div class="specific-card" in:slide={{ axis: 'y', duration: 800 }}>
+						{#each item.subItems as subItem}
+							<Link to={subItem.url}>
+								<Text variant="small">{subItem.title}</Text>
+							</Link>
+						{/each}
+					</div>
+				</TargetDiv>
+			{/if}
+		{/each}
 	</header>
 {/if}
 
@@ -180,11 +186,16 @@
 		align-items: center;
 	}
 
+	:global(main) {
+		padding-top: var(--topbar-mobile-height);
+	}
+
 	.nav-item {
 		display: flex;
 		align-items: end;
 		gap: 5px;
 		height: '100%';
+		padding: 10px;
 	}
 
 	.header-items {
@@ -204,20 +215,34 @@
 		padding: 0 30px;
 		gap: 25px;
 	}
+	.selected {
+		background-color: var(--background-color);
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		/* box-shadow: -8px 12px 20px 0 rgba(25, 42, 70, 0.13); */
+	}
 
-	.target-div-card {
+	.specific-card {
 		display: flex;
 		flex-direction: column;
-		gap: 10px;
+		background-color: var(--background-color);
+		/* box-shadow: -8px 12px 20px 0 rgba(25, 42, 70, 0.13); */
+		border-top-right-radius: 10px;
+		border-bottom-right-radius: 10px;
+		border-bottom-left-radius: 10px;
 		padding: 10px;
-		background-color: white;
-		border: 1px solid var(--accent-color);
-		border-radius: 5px;
+		display: flex;
+		gap: 5px;
+		flex-direction: column;
 	}
 
 	@media (min-width: 720px) {
 		header {
-			height: var(--topbar-height);
+			height: var(--topbar-desktop-height);
+		}
+
+		:global(main) {
+			padding-top: var(--topbar-desktop-height);
 		}
 	}
 </style>
