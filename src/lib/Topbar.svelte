@@ -7,13 +7,15 @@
 	import Link from './toolkit/Link.svelte';
 	import Text from './toolkit/Text.svelte';
 	import TargetDiv from './toolkit/TargetDiv.svelte';
-	import { clickOutside } from './toolkit/util';
 	import Cover from './toolkit/Cover.svelte';
+	import { browser } from '$app/environment';
+	import { clickOutside } from './toolkit/actions.svelte';
+	import { afterNavigate } from '$app/navigation';
 
 	let ready = $state(false);
 	let open = $state<number | null>(null);
 	let sidebar = $state(false);
-	let innerWidth = $state(window.innerWidth);
+	let innerWidth = $state(browser ? window.innerWidth : 0);
 
 	onMount(() => (ready = true));
 
@@ -139,6 +141,11 @@
 			sidebar = false;
 		}
 	});
+
+	afterNavigate(() => {
+		open = null;
+		sidebar = false;
+	});
 </script>
 
 <svelte:window bind:innerWidth />
@@ -148,8 +155,10 @@
 		in:slide={{
 			axis: 'y'
 		}}
-		use:clickOutside={() => {
-			open = null;
+		use:clickOutside={{
+			callbackFunction: () => {
+				open = null;
+			}
 		}}
 	>
 		<div class="header-items">
@@ -183,38 +192,63 @@
 				</IconButton>
 			</div>
 		</div>
-		{#each topbarItems as item, index}
-			{#if item.subItems && index === open}
-				<TargetDiv anchor={getRefById(`nav-item-${index}`)}>
-					<!-- svelte-ignore event_directive_deprecated -->
-					<div
-						class="specific-card"
-						in:slide={{ axis: 'y', duration: 800 }}
-						out:slide={{ axis: 'y', duration: 800 }}
-					>
-						{#each item.subItems as subItem}
-							<Link to={subItem.url}>
-								<Text variant="small">{subItem.title}</Text>
-							</Link>
-						{/each}
-					</div>
-				</TargetDiv>
-			{/if}
-		{/each}
 		{#if sidebar}
-			<Cover onClick={() => (sidebar = false)}>
+			<Cover>
 				<div
 					class={['show-on-mobile', 'sidenav']}
 					in:slide={{ axis: 'x' }}
 					out:slide={{ axis: 'x' }}
+					use:clickOutside={{
+						callbackFunction: () => {
+							sidebar = false;
+						},
+						skipFirst: true
+					}}
 				>
-					{#each topbarItems as item}
-						<Link to={item.url}>
-							<Text variant="small">{item.title}</Text>
-						</Link>
+					{#each topbarItems as item, index}
+						<div class="sidenav-button">
+							<Link to={item.url}>
+								<Text>{item.title}</Text>
+							</Link>
+							{#if item.subItems}
+								<IconButton onClick={() => (open = index)}>
+									<IconCaret
+										style={`transform: rotate(${index !== open ? '90' : '180'}deg); transition: transform 0.5s;`}
+									/>
+								</IconButton>
+							{/if}
+						</div>
+						{#if open === index && item.subItems}
+							<div class="sidenav-subitems" in:slide={{ axis: 'y' }} out:slide={{ axis: 'y' }}>
+								{#each item.subItems as subItem}
+									<Link to={subItem.url}>
+										<Text variant="small">{subItem.title}</Text>
+									</Link>
+								{/each}
+							</div>
+						{/if}
 					{/each}
 				</div>
 			</Cover>
+		{:else}
+			{#each topbarItems as item, index}
+				{#if item.subItems && index === open}
+					<TargetDiv anchor={getRefById(`nav-item-${index}`)}>
+						<!-- svelte-ignore event_directive_deprecated -->
+						<div
+							class="specific-card"
+							in:slide={{ axis: 'y', duration: 800 }}
+							out:slide={{ axis: 'y', duration: 800 }}
+						>
+							{#each item.subItems as subItem}
+								<Link to={subItem.url}>
+									<Text variant="small">{subItem.title}</Text>
+								</Link>
+							{/each}
+						</div>
+					</TargetDiv>
+				{/if}
+			{/each}
 		{/if}
 	</header>
 {/if}
@@ -296,10 +330,25 @@
 		padding: 20px;
 		display: flex;
 		flex-direction: column;
-		gap: 10px;
 		-webkit-box-shadow: -24px 0px 28px -4px rgba(0, 0, 0, 0.2);
 		-moz-box-shadow: -24px 0px 28px -4px rgba(0, 0, 0, 0.2);
 		box-shadow: -24px 0px 28px -4px rgba(0, 0, 0, 0.2);
+	}
+
+	.sidenav-button {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		padding: 10px;
+		justify-content: space-between;
+	}
+
+	.sidenav-subitems {
+		width: 100%;
+		display: flex;
+		padding: 10px;
+		flex-direction: column;
+		gap: 5px;
 	}
 
 	.hide-on-mobile {

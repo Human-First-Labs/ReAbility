@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import { browser } from '$app/environment';
 
 	interface Position {
 		top?: number;
@@ -69,6 +70,8 @@
 		const newPosition: Position = {};
 		const childWidth = mySizeInfo.width;
 		const childHeight = mySizeInfo.height;
+		const windowWidth = browser ? window.innerWidth : 0;
+		const windowHeight = browser ? window.innerHeight : 0;
 
 		const splitPosition = renderPosition.split('-');
 
@@ -78,7 +81,7 @@
 			if (splitPosition.includes('start')) {
 				newPosition.left = targetSizeInfo.left;
 			} else if (splitPosition.includes('end')) {
-				newPosition.right = window.innerWidth - targetSizeInfo.right;
+				newPosition.right = windowWidth - targetSizeInfo.right;
 			} else {
 				newPosition.left = targetSizeInfo.left + targetSizeInfo.width / 2 - childWidth / 2;
 			}
@@ -90,7 +93,7 @@
 			if (splitPosition.includes('start')) {
 				newPosition.left = targetSizeInfo.left;
 			} else if (splitPosition.includes('end')) {
-				newPosition.right = window.innerWidth - targetSizeInfo.right;
+				newPosition.right = windowWidth - targetSizeInfo.right;
 			} else {
 				newPosition.left = targetSizeInfo.left + targetSizeInfo.width / 2 - childWidth / 2;
 			}
@@ -102,7 +105,7 @@
 			if (splitPosition.includes('start')) {
 				newPosition.top = targetSizeInfo.top;
 			} else if (splitPosition.includes('end')) {
-				newPosition.bottom = window.innerHeight - targetSizeInfo.bottom;
+				newPosition.bottom = windowHeight - targetSizeInfo.bottom;
 			} else {
 				newPosition.top = targetSizeInfo.top + targetSizeInfo.height / 2 - childHeight / 2;
 			}
@@ -114,7 +117,7 @@
 			if (splitPosition.includes('start')) {
 				newPosition.top = targetSizeInfo.top;
 			} else if (splitPosition.includes('end')) {
-				newPosition.bottom = window.innerHeight - targetSizeInfo.bottom;
+				newPosition.bottom = windowHeight - targetSizeInfo.bottom;
 			} else {
 				newPosition.top = targetSizeInfo.top + targetSizeInfo.height / 2 - childHeight / 2;
 			}
@@ -193,14 +196,16 @@
 
 		const myWidth = mySizeInfo.width;
 		const myHeight = mySizeInfo.height;
+		const windowWidth = browser ? window.innerWidth : 0;
+		const windowHeight = browser ? window.innerHeight : 0;
 
 		if (targetSizeInfo && myHeight && myWidth) {
 			let forcedPosition: TargetDivPosition = preferredPosition;
 
 			const topSpace = targetSizeInfo.top;
-			const bottomSpace = window.innerHeight - targetSizeInfo.bottom;
+			const bottomSpace = windowHeight - targetSizeInfo.bottom;
 			const leftSpace = targetSizeInfo.left;
-			const rightSpace = window.innerWidth - targetSizeInfo.right;
+			const rightSpace = windowWidth - targetSizeInfo.right;
 
 			let unusablePositions: TargetDivPosition[] = [];
 

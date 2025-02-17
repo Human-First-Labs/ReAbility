@@ -73,20 +73,10 @@
 		</div>
 	</Cover>
 {:else}
-	<main>
-		{@render children()}
-	</main>
+	{@render children()}
 {/if}
 
 <style>
-	main {
-		display: flex;
-		flex-direction: column;
-		margin: 0;
-		box-sizing: border-box;
-		height: 100vh;
-	}
-
 	.popup {
 		display: flex;
 		background-color: white;

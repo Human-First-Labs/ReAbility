@@ -16,8 +16,21 @@
 	<meta name="description" content={`The ${appName} website`} />
 </svelte:head>
 
-<SupabaseLayout {...restOfProps}>
-	<Topbar />
-	{@render children()}
-	<Footer />
-</SupabaseLayout>
+<main>
+	<SupabaseLayout {...restOfProps}>
+		<Topbar />
+		{@render children()}
+		<Footer />
+	</SupabaseLayout>
+</main>
+
+<style>
+	main {
+		display: flex;
+		flex-direction: column;
+		margin: 0;
+		box-sizing: border-box;
+		height: 100vh;
+		overflow: auto;
+	}
+</style>

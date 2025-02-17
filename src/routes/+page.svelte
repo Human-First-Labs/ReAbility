@@ -5,23 +5,4 @@
 
 <Content>
 	<Text variant="h1">Home</Text>
-	<Text variant="h1">Home</Text>
-	<Text variant="h1">Home</Text>
-	<Text variant="h1">Home</Text>
-	<Text variant="h1">Home</Text>
-	<Text variant="h1">Home</Text>
-	<Text variant="h1">Home</Text>
-	<Text variant="h1">Home</Text>
-	<Text variant="h1">Home</Text>
-	<Text variant="h1">Home</Text>
-	<Text variant="h1">Home</Text>
-	<Text variant="h1">Home</Text>
-	<Text variant="h1">Home</Text>
-	<Text variant="h1">Home</Text>
-	<Text variant="h1">Home</Text>
-	<Text variant="h1">Home</Text>
-	<Text variant="h1">Home</Text>
-	<Text variant="h1">Home</Text>
-	<Text variant="h1">Home</Text>
-	<Text variant="h1">Home</Text>
 </Content>

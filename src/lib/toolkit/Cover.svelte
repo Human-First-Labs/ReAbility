@@ -4,16 +4,14 @@
 	interface Props {
 		/** This is just the text */
 		children: Snippet;
-		/** Optionally do something onclick, usually dismiss*/
-		onClick?: () => void;
 	}
 
-	const { children, onClick }: Props = $props();
+	const { children }: Props = $props();
 </script>
 
-<button class="cover" onclick={onClick} aria-roledescription="dismissal" aria-label="dismiss">
+<div class="cover">
 	{@render children()}
-</button>
+</div>
 
 <style>
 	.cover {
