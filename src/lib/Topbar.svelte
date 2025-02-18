@@ -14,6 +14,7 @@
 
 	let ready = $state(false);
 	let open = $state<number | null>(null);
+	let openSidebar = $state<number | null>(null);
 	let sidebar = $state(false);
 	let innerWidth = $state(browser ? window.innerWidth : 0);
 
@@ -139,6 +140,9 @@
 	$effect(() => {
 		if (innerWidth > 1000) {
 			sidebar = false;
+			open = openSidebar;
+		} else {
+			openSidebar = open;
 		}
 	});
 
@@ -211,14 +215,14 @@
 								<Text>{item.title}</Text>
 							</Link>
 							{#if item.subItems}
-								<IconButton onClick={() => (open = index)}>
+								<IconButton onClick={() => (openSidebar = index)}>
 									<IconCaret
-										style={`transform: rotate(${index !== open ? '90' : '180'}deg); transition: transform 0.5s;`}
+										style={`transform: rotate(${index !== openSidebar ? '90' : '180'}deg); transition: transform 0.5s;`}
 									/>
 								</IconButton>
 							{/if}
 						</div>
-						{#if open === index && item.subItems}
+						{#if openSidebar === index && item.subItems}
 							<div class="sidenav-subitems" in:slide={{ axis: 'y' }} out:slide={{ axis: 'y' }}>
 								{#each item.subItems as subItem}
 									<Link to={subItem.url}>
@@ -300,14 +304,12 @@
 		background-color: var(--background-color);
 		border-top-left-radius: 10px;
 		border-top-right-radius: 10px;
-		/* box-shadow: -8px 12px 20px 0 rgba(25, 42, 70, 0.13); */
 	}
 
 	.specific-card {
 		display: flex;
 		flex-direction: column;
 		background-color: var(--background-color);
-		/* box-shadow: -8px 12px 20px 0 rgba(25, 42, 70, 0.13); */
 		border-top-right-radius: 10px;
 		border-bottom-right-radius: 10px;
 		border-bottom-left-radius: 10px;

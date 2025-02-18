@@ -28,7 +28,6 @@
 	section {
 		display: flex;
 		width: 100%;
-		padding: 0 20px;
 		flex-direction: column;
 		flex: 1;
 		box-sizing: border-box;
