@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Content from '$lib/Content.svelte';
+	import Content from '$lib/toolkit/Content.svelte';
 	import Text from '$lib/toolkit/Text.svelte';
 </script>
 

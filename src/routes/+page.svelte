@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Content from '$lib/Content.svelte';
+	import Content from '$lib/toolkit/Content.svelte';
 	import Card from '$lib/toolkit/Card.svelte';
 	import Text from '$lib/toolkit/Text.svelte';
 	import { fly } from 'svelte/transition';
