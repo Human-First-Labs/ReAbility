@@ -15,10 +15,8 @@
 			in:fly={{ duration: 500, x: 200 }}
 			out:fly={{ duration: 500, x: 200 }}
 		>
-			<Text variant="h1" needsChange size={80} shrink noMargin>SCI Able</Text>
-			<Text variant="small" needsChange shrink
-				>A companion for your journey through life changing injury</Text
-			>
+			<Text variant="h1" needsChange size={80} shrink noMargin>ReAbility</Text>
+			<Text variant="small" needsChange shrink>through Adaptability</Text>
 		</div>
 	</div>
 	<div class="section2">

@@ -44,65 +44,65 @@
 					url: '/therapies/occupational-therapy'
 				},
 				{
-					title: 'Psychotherapy',
-					url: '/therapies/psychotherapy'
+					title: 'Mental Health',
+					url: '/therapies/mental-health'
 				}
 			]
 		},
 		{
 			title: 'Physical Changes',
-			url: '/physical-changes',
-			subItems: [
-				{
-					title: 'Autonomic Dysreflexia (AD)',
-					url: '/physical-changes/autonomic-dysreflexia'
-				},
-				{
-					title: 'Bowels & Bladder',
-					url: '/physical-changes/bowels-bladder'
-				},
-				{
-					title: 'Medical Procedures',
-					url: '/physical-changes/medical-procedures'
-				}
-			]
+			url: '/physical-changes'
+			// subItems: [
+			// 	{
+			// 		title: 'Autonomic Dysreflexia (AD)',
+			// 		url: '/physical-changes/autonomic-dysreflexia'
+			// 	},
+			// 	{
+			// 		title: 'Bowels & Bladder',
+			// 		url: '/physical-changes/bowels-bladder'
+			// 	},
+			// 	{
+			// 		title: 'Medical Procedures',
+			// 		url: '/physical-changes/medical-procedures'
+			// 	}
+			// ]
 		},
 		{
-			title: 'Tools',
-			url: '/tools',
+			title: 'Resources',
+			url: '/resources',
 			subItems: [
 				{
 					title: 'Wheelchairs',
-					url: '/tools/wheelchairs'
+					url: '/resources/wheelchairs'
 				},
 				{
 					title: 'Adaptive Equipment',
-					url: '/tools/adaptive-equipment'
+					url: '/resources/adaptive-equipment'
+				},
+				{
+					title: 'PAs & Caregivers',
+					url: '/resources/pas-caregivers'
 				}
 			]
-		},
-		{
-			title: 'PAs & Caregivers',
-			url: '/pas-caregivers'
 		},
 		{
 			title: 'How we can help',
 			url: '/how-we-help',
 			subItems: [
 				{
-					title: 'Custom Equipment Design',
-					url: '/how-we-help/custom-equipment-design'
-				},
-				{
 					title: 'Accessibility Map',
 					url: '/how-we-help/accessibility-map'
 				},
 				{
-					title: 'Accessibility Transport',
-					url: '/how-we-help/accessibility-transport'
+					title: 'Tools',
+					url: '/how-we-help/tools'
 				},
+				// {
+				// 	title: 'Accessibility Transport',
+				// 	url: '/how-we-help/accessibility-transport'
+				// },
 				{
-					title: 'Support Groups',
+					title: 'Support Groups (Coming Soon)',
 					url: '/how-we-help/support-groups'
 				}
 			]
@@ -116,13 +116,21 @@
 					url: '/how-you-help/feedback'
 				},
 				{
-					title: 'Donate',
-					url: '/how-you-help/donate'
+					title: 'Buy Merch',
+					url: '/how-you-help/buy-merch'
 				},
 				{
-					title: 'Volunteer',
-					url: '/how-you-help/volunteer'
+					title: 'Share what we do',
+					url: '/how-you-help/share-what-we-do'
 				}
+				// {
+				// 	title: 'Donate',
+				// 	url: '/how-you-help/donate'
+				// }
+				// {
+				// 	title: 'Volunteer',
+				// 	url: '/how-you-help/volunteer'
+				// }
 			]
 		}
 	];
@@ -168,7 +176,7 @@
 		<div class="header-items">
 			<div class="left-items">
 				<Link to="/">
-					<Text variant="h3">SCI Able</Text>
+					<Text variant="h3">ReAbility</Text>
 				</Link>
 				<div class={['nav-items', 'hide-on-mobile']}>
 					{#each topbarItems as item, index}
