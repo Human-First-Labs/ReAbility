@@ -51,21 +51,37 @@
 		},
 		{
 			title: 'Physical Changes',
-			url: '/physical-changes'
-			// subItems: [
-			// 	{
-			// 		title: 'Autonomic Dysreflexia (AD)',
-			// 		url: '/physical-changes/autonomic-dysreflexia'
-			// 	},
-			// 	{
-			// 		title: 'Bowels & Bladder',
-			// 		url: '/physical-changes/bowels-bladder'
-			// 	},
-			// 	{
-			// 		title: 'Medical Procedures',
-			// 		url: '/physical-changes/medical-procedures'
-			// 	}
-			// ]
+			url: '/physical-changes',
+			subItems: [
+				{
+					title: 'Autonomic Dysreflexia (AD)',
+					url: '/physical-changes/autonomic-dysreflexia'
+				},
+				{
+					title: 'Bowels & Bladder',
+					url: '/physical-changes/bowels-bladder'
+				},
+				{
+					title: 'Medical Procedures',
+					url: '/physical-changes/medical-procedures'
+				},
+				{
+					title: 'Pressure Sores',
+					url: '/physical-changes/pressure-sores'
+				},
+				{
+					title: 'Spasticity',
+					url: '/physical-changes/spasticity'
+				},
+				{
+					title: 'Temperature Regulation',
+					url: '/physical-changes/temperature-regulation'
+				},
+				{
+					title: 'Weight Management',
+					url: '/physical-changes/weight-management'
+				}
+			]
 		},
 		{
 			title: 'Resources',

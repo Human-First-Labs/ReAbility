@@ -29,10 +29,10 @@
 					once knew. It is a time of great uncertainty and fear.
 				</Text>
 				<Text variant="p" noMargin needsChange>
-					SCI Able aims to be a companion for you on this difficult journey. We provide information,
-					resources, and a community of people who have been through similar experiences. We are
-					here to help you navigate the challenges of life changing injury and find hope and healing
-					along the way.
+					ReAbility aims to be a companion for you on this difficult journey. We provide
+					information, resources, and a community of people who have been through similar
+					experiences. We are here to help you navigate the challenges of life changing injury and
+					find hope and healing along the way.
 				</Text>
 			</div>
 			<div>
