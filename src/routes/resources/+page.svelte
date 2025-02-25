@@ -3,5 +3,5 @@
 </script>
 
 <Content>
-	<h1>Therapies</h1>
+	<h1>Tools</h1>
 </Content>

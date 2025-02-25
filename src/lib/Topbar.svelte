@@ -5,7 +5,6 @@
 	import IconMenu from '~icons/mdi/menu';
 	import IconButton from './toolkit/IconButton.svelte';
 	import Link from './toolkit/Link.svelte';
-	import Text from './toolkit/Text.svelte';
 	import TargetDiv from './toolkit/TargetDiv.svelte';
 	import Cover from './toolkit/Cover.svelte';
 	import { browser } from '$app/environment';
@@ -27,61 +26,61 @@
 	}
 
 	const topbarItems: NavItem[] = [
-		{
-			title: 'Gov. Services',
-			url: '/gov-services'
-		},
-		{
-			title: 'Therapies',
-			url: '/therapies',
-			subItems: [
-				{
-					title: 'Physical Therapy (PT)',
-					url: '/therapies/physical-therapy'
-				},
-				{
-					title: 'Occupational Therapy (OT)',
-					url: '/therapies/occupational-therapy'
-				},
-				{
-					title: 'Mental Health',
-					url: '/therapies/mental-health'
-				}
-			]
-		},
+		// {
+		// 	title: 'Gov. Services',
+		// 	url: '/gov-services'
+		// },
+		// {
+		// 	title: 'Therapies',
+		// 	url: '/therapies',
+		// 	subItems: [
+		// 		{
+		// 			title: 'Physical Therapy (PT)',
+		// 			url: '/therapies/physical-therapy'
+		// 		},
+		// 		{
+		// 			title: 'Occupational Therapy (OT)',
+		// 			url: '/therapies/occupational-therapy'
+		// 		},
+		// 		{
+		// 			title: 'Mental Health',
+		// 			url: '/therapies/mental-health'
+		// 		}
+		// 	]
+		// },
 		{
 			title: 'Physical Changes',
-			url: '/physical-changes',
-			subItems: [
-				{
-					title: 'Autonomic Dysreflexia (AD)',
-					url: '/physical-changes/autonomic-dysreflexia'
-				},
-				{
-					title: 'Bowels & Bladder',
-					url: '/physical-changes/bowels-bladder'
-				},
-				{
-					title: 'Medical Procedures',
-					url: '/physical-changes/medical-procedures'
-				},
-				{
-					title: 'Pressure Sores',
-					url: '/physical-changes/pressure-sores'
-				},
-				{
-					title: 'Spasticity',
-					url: '/physical-changes/spasticity'
-				},
-				{
-					title: 'Temperature Regulation',
-					url: '/physical-changes/temperature-regulation'
-				},
-				{
-					title: 'Weight Management',
-					url: '/physical-changes/weight-management'
-				}
-			]
+			url: '/physical-changes'
+			// subItems: [
+			// 	{
+			// 		title: 'Autonomic Dysreflexia (AD)',
+			// 		url: '/physical-changes/autonomic-dysreflexia'
+			// 	},
+			// 	{
+			// 		title: 'Bowels & Bladder',
+			// 		url: '/physical-changes/bowels-bladder'
+			// 	},
+			// 	{
+			// 		title: 'Medical Procedures',
+			// 		url: '/physical-changes/medical-procedures'
+			// 	},
+			// 	{
+			// 		title: 'Pressure Sores',
+			// 		url: '/physical-changes/pressure-sores'
+			// 	},
+			// 	{
+			// 		title: 'Spasticity',
+			// 		url: '/physical-changes/spasticity'
+			// 	},
+			// 	{
+			// 		title: 'Temperature Regulation',
+			// 		url: '/physical-changes/temperature-regulation'
+			// 	},
+			// 	{
+			// 		title: 'Weight Management',
+			// 		url: '/physical-changes/weight-management'
+			// 	}
+			// ]
 		},
 		{
 			title: 'Resources',
@@ -90,15 +89,15 @@
 				{
 					title: 'Wheelchairs',
 					url: '/resources/wheelchairs'
-				},
-				{
-					title: 'Adaptive Equipment',
-					url: '/resources/adaptive-equipment'
-				},
-				{
-					title: 'PAs & Caregivers',
-					url: '/resources/pas-caregivers'
 				}
+				// {
+				// 	title: 'Adaptive Equipment',
+				// 	url: '/resources/adaptive-equipment'
+				// },
+				// {
+				// 	title: 'PAs & Caregivers',
+				// 	url: '/resources/pas-caregivers'
+				// }
 			]
 		},
 		{
@@ -112,15 +111,15 @@
 				{
 					title: 'Tools',
 					url: '/how-we-help/tools'
-				},
+				}
 				// {
 				// 	title: 'Accessibility Transport',
 				// 	url: '/how-we-help/accessibility-transport'
 				// },
-				{
-					title: 'Support Groups (Coming Soon)',
-					url: '/how-we-help/support-groups'
-				}
+				// {
+				// 	title: 'Support Groups (Coming Soon)',
+				// 	url: '/how-we-help/support-groups'
+				// }
 			]
 		},
 		{
@@ -192,7 +191,7 @@
 		<div class="header-items">
 			<div class="left-items">
 				<Link to="/">
-					<Text variant="h3">ReAbility</Text>
+					<h3>ReAbility</h3>
 				</Link>
 				<div class={['nav-items', 'hide-on-mobile']}>
 					{#each topbarItems as item, index}
@@ -201,7 +200,7 @@
 							id={`nav-item-${index}`}
 						>
 							<Link to={item.url}>
-								<Text variant="small">{item.title}</Text>
+								<small>{item.title}</small>
 							</Link>
 							{#if item.subItems}
 								<IconButton onClick={() => (open = index)}>
@@ -236,7 +235,7 @@
 					{#each topbarItems as item, index}
 						<div class="sidenav-button">
 							<Link to={item.url}>
-								<Text>{item.title}</Text>
+								<p>{item.title}</p>
 							</Link>
 							{#if item.subItems}
 								<IconButton onClick={() => (openSidebar = index)}>
@@ -250,7 +249,7 @@
 							<div class="sidenav-subitems" in:slide={{ axis: 'y' }} out:slide={{ axis: 'y' }}>
 								{#each item.subItems as subItem}
 									<Link to={subItem.url}>
-										<Text variant="small">{subItem.title}</Text>
+										<small>{subItem.title}</small>
 									</Link>
 								{/each}
 							</div>
@@ -270,7 +269,7 @@
 						>
 							{#each item.subItems as subItem}
 								<Link to={subItem.url}>
-									<Text variant="small">{subItem.title}</Text>
+									<small>{subItem.title}</small>
 								</Link>
 							{/each}
 						</div>

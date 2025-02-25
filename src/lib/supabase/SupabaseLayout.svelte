@@ -3,7 +3,7 @@
 	import { invalidate } from '$app/navigation';
 	import { Turnstile } from 'svelte-turnstile';
 	import type { LayoutProps } from '../../routes/$types';
-	import Text from '$lib/toolkit/Text.svelte';
+
 	import Cover from '$lib/toolkit/Cover.svelte';
 
 	let { data, children }: LayoutProps = $props();
@@ -66,9 +66,9 @@
 {#if !session}
 	<Cover>
 		<div class="popup">
-			<Text variant="h2">Sorry about this!</Text>
-			<Text variant="h4">Just making sure you're not a bot</Text>
-			<Text variant="small">You know how it is these days :(</Text>
+			<h2>Sorry about this!</h2>
+			<h4>Just making sure you're not a bot</h4>
+			<small>You know how it is these days :(</small>
 			<Turnstile siteKey={VITE_TURNSTILE_SITE_KEY} on:callback={tokenGetter} />
 		</div>
 	</Cover>

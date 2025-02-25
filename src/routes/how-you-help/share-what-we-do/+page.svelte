@@ -1,8 +1,7 @@
 <script lang="ts">
 	import Content from '$lib/toolkit/Content.svelte';
-	import Text from '$lib/toolkit/Text.svelte';
 </script>
 
 <Content>
-	<Text variant="h1">Wheelchairs</Text>
+	<h1>Share what we do</h1>
 </Content>

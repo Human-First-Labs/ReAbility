@@ -2,7 +2,6 @@
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import Link from './toolkit/Link.svelte';
-	import Text from './toolkit/Text.svelte';
 
 	let ready = $state(false);
 	onMount(() => (ready = true));
@@ -20,7 +19,7 @@
 	>
 		<div></div>
 		<div class="right-stuff">
-			<Text variant="small">Built with the aid of <Link to="/">Human First Labs (HFL)</Link></Text>
+			<small>Built with the aid of <Link to="/">Human First Labs (HFL)</Link></small>
 		</div>
 	</footer>
 {/if}

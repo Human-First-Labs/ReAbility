@@ -1,0 +1,76 @@
+[
+	{
+		"id": 1,
+		"name": {
+			"en": "Ta' Qali Park",
+			"mt": "Il-Park ta' Ta' Qali"
+		},
+		"description": {
+			"en": "Ta' Qali Park is a large public park in the centre of Malta. It is still used for agriculture, but also for sports, concerts, and other activities.",
+			"mt": "Il-Park ta' Ħal-Tarxien huwa park pubbliku kbir fil-qalba ta' Malta. Huwa għadu użat għall-agrikoltura, iżda wkoll għall-isports, kuncerti, u attivitajiet oħra."
+		},
+		"latitude": 35.8956,
+		"longitude": 14.4422,
+		"accessibility-information": {
+			"overall-rating-1-5": 4,
+			"text": "",
+			"specific-issues": [
+				{
+					"name": {
+						"en": "",
+						"mt": ""
+					},
+					"description": {
+						"en": "",
+						"mt": ""
+					},
+					"image": ""
+				}
+			],
+			"accessibility-features": [
+				{
+					"name": {
+						"en": "Parking",
+						"mt": "Parking"
+					},
+					"rating-1-5": 4
+				},
+				{
+					"name": {
+						"en": "Toilets",
+						"mt": ""
+					},
+					"rating-1-5": 3
+				},
+				{
+					"name": {
+						"en": "Paths",
+						"mt": ""
+					},
+					"rating-1-5": 4
+				},
+				{
+					"name": {
+						"en": "Seating",
+						"mt": ""
+					},
+					"rating-1-5": 4
+				},
+				{
+					"name": {
+						"en": "Shelter",
+						"mt": ""
+					},
+					"rating-1-5": 4
+				},
+				{
+					"name": {
+						"en": "Assistance",
+						"mt": ""
+					},
+					"rating-1-5": 4
+				}
+			]
+		}
+	}
+]

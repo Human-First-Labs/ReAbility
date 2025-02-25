@@ -16,3 +16,8 @@ body {
 	min-height: 100vh;
 	margin: 0;
 }
+
+* {
+	line-height: 1;
+	font-family: var(--general-font);
+}
