@@ -6,7 +6,7 @@
 }
 
 * {
-	line-height: 0.8;
+	line-height: 0.9;
 }
 
 .outlined-text {
@@ -19,6 +19,10 @@
 	text-transform: uppercase;
 	font-size: 2vw;
 	margin: 0;
+}
+
+a {
+	color: var(--secondary-color) !important;
 }
 
 @media screen and (min-width: 1200px) {

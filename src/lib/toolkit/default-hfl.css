@@ -34,4 +34,5 @@ div {
 * {
 	font-family: var(--general-font);
 	color: var(--text-color);
+	box-sizing: border-box;
 }

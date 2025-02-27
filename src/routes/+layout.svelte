@@ -3,6 +3,7 @@
 	import type { LayoutProps } from './$types';
 	import '../lib/toolkit/default-hfl.css';
 	import '../lib/project.css';
+	import Footer from '$lib/Footer.svelte';
 
 	const appName = 'Reability';
 
@@ -18,7 +19,7 @@
 	<SupabaseLayout {...restOfProps}>
 		<!-- <Topbar /> -->
 		{@render children()}
-		<!-- <Footer /> -->
+		<Footer />
 	</SupabaseLayout>
 </main>
 
