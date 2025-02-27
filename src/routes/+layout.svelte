@@ -3,8 +3,6 @@
 	import type { LayoutProps } from './$types';
 	import '../lib/toolkit/default-hfl.css';
 	import '../lib/project.css';
-	import Topbar from '$lib/Topbar.svelte';
-	import Footer from '$lib/Footer.svelte';
 
 	const appName = 'SCI-Able';
 
@@ -18,9 +16,9 @@
 
 <main>
 	<SupabaseLayout {...restOfProps}>
-		<Topbar />
+		<!-- <Topbar /> -->
 		{@render children()}
-		<Footer />
+		<!-- <Footer /> -->
 	</SupabaseLayout>
 </main>
 

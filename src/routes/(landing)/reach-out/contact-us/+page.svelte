@@ -3,5 +3,5 @@
 </script>
 
 <Content>
-	<h1>How you can help</h1>
+	<h1>Contact Us</h1>
 </Content>

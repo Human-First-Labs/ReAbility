@@ -11,10 +11,10 @@
 	const { children, to }: Props = $props();
 </script>
 
-<a href={to} class={['basic-link']}>{@render children()}</a>
+<a href={to}>{@render children()}</a>
 
 <style>
-	.basic-link {
+	a {
 		line-height: 1;
 		text-decoration: none;
 		color: var(--primary-color);

@@ -11,10 +11,10 @@
 	const { children, onClick }: Props = $props();
 </script>
 
-<button onclick={onClick} class="icon-button">{@render children()}</button>
+<button onclick={onClick}>{@render children()}</button>
 
 <style>
-	.icon-button {
+	button {
 		display: flex;
 		cursor: pointer;
 		border: 0;

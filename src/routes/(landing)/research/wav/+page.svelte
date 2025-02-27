@@ -3,5 +3,5 @@
 </script>
 
 <Content>
-	<h1>How we can help</h1>
+	<h1>Wheelchair Accessible Vehicles (WAVS)</h1>
 </Content>

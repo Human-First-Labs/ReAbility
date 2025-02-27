@@ -1,4 +1,28 @@
 :root {
-	--topbar-desktop-height: 60px;
-	--topbar-mobile-height: 60px;
+	/* this might need to change */
+	--general-font: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	--primary-color: #123524;
+	--text-color: #fae9bb;
+}
+
+* {
+	line-height: 0.8;
+}
+
+.outlined-text {
+	-webkit-text-fill-color: transparent;
+	-webkit-text-stroke: 1px;
+}
+
+.menu-item {
+	text-decoration: underline;
+	text-transform: uppercase;
+	font-size: 2vw;
+	margin: 0;
+}
+
+@media screen and (min-width: 1200px) {
+	.menu-item {
+		font-size: 2em;
+	}
 }

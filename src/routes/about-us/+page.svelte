@@ -3,5 +3,5 @@
 </script>
 
 <Content>
-	<h1>Volunteer</h1>
+	<h1>About Us</h1>
 </Content>

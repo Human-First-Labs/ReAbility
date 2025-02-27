@@ -8,7 +8,7 @@
 	import TargetDiv from './toolkit/TargetDiv.svelte';
 	import Cover from './toolkit/Cover.svelte';
 	import { browser } from '$app/environment';
-	import { clickOutside } from './toolkit/actions.svelte';
+	import { clickOutside } from './toolkit/actions/onClickOutside.svelte';
 	import { afterNavigate } from '$app/navigation';
 
 	let ready = $state(false);

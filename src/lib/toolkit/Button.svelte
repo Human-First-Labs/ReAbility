@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Link from './Link.svelte';
 	import Spinner from './svgs/Spinner.svelte';
 
 	interface Props {
@@ -9,7 +10,10 @@
 		/** Button contents */
 		label: string;
 		/** The onClick event handler */
-		onClick: () => void;
+		onClick: {
+			func?: () => void;
+			href?: string;
+		};
 		/** This will make the onClick event handler not work*/
 		disabled?: boolean;
 		/** this will block onClick and run onLoadClick if given*/
@@ -36,31 +40,40 @@
 		if (loading) {
 			onLoadClick && onLoadClick();
 		} else {
-			onClick();
+			onClick.func && onClick.func();
 		}
 	};
 </script>
 
-<button
-	class={[
-		'basic-button',
-		`${variant}`,
-		`${size}`,
-		{
-			disabled
-		}
-	]}
-	onclick={onClickHandler}
->
-	{#if loading}
-		<Spinner />
-	{:else}
-		{label}
-	{/if}
-</button>
+{#snippet button()}
+	<button
+		class={[
+			`${variant}`,
+			`${size}`,
+			{
+				disabled
+			}
+		]}
+		onclick={onClickHandler}
+	>
+		{#if loading}
+			<Spinner />
+		{:else}
+			{label}
+		{/if}
+	</button>
+{/snippet}
+
+{#if onClick.href}
+	<Link to={onClick.href}>
+		{@render button()}
+	</Link>
+{:else}
+	{@render button()}
+{/if}
 
 <style>
-	.basic-button {
+	button {
 		cursor: pointer;
 		border: 0;
 		border-radius: 2em;
