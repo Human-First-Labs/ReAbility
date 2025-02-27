@@ -86,7 +86,7 @@
 						<Arrow />
 					</a>
 				</div>
-				<div class="row">
+				<div class="row center">
 					<div class="hidden big-icon">
 						<Arrow />
 					</div>
@@ -132,9 +132,7 @@
 
 	.big-icon {
 		font-size: 10vw;
-		overflow: hidden;
 		height: fit-content;
-		display: flex;
 	}
 
 	.big-text {
@@ -170,10 +168,12 @@
 
 	.before {
 		rotate: 180deg;
+		margin-right: 10px;
 	}
 
 	.hidden {
 		visibility: hidden;
+		margin-right: 10px;
 	}
 
 	.absolute {
