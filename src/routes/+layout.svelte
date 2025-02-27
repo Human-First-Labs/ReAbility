@@ -4,7 +4,7 @@
 	import '../lib/toolkit/default-hfl.css';
 	import '../lib/project.css';
 
-	const appName = 'SCI-Able';
+	const appName = 'Reability';
 
 	let { children, ...restOfProps }: LayoutProps = $props();
 </script>

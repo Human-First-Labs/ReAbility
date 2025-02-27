@@ -48,9 +48,13 @@
 </script>
 
 <Content>
-	{#if !landingPage.hidden}
-		<div class="fullscreen">
-			<div class="text-center">
+	<div class="fullscreen">
+		{#if !landingPage.hidden}
+			<div
+				class="text-center"
+				out:fly={{ y: 50, duration: 500 }}
+				in:fly={{ y: -50, duration: 500 }}
+			>
 				<div class="column menu-items">
 					<div class="relative">
 						{@render children()}
@@ -89,10 +93,10 @@
 					<h1 class="big-text">ABILITY</h1>
 				</div>
 			</div>
-		</div>
-	{:else}
-		{@render children()}
-	{/if}
+		{:else}
+			{@render children()}
+		{/if}
+	</div>
 </Content>
 
 <style>
@@ -100,8 +104,6 @@
 		height: 100vh;
 		width: 100vw;
 		background-color: var(--primary-color);
-		justify-content: center;
-		align-items: center;
 	}
 
 	.menu-items {
@@ -142,6 +144,10 @@
 	}
 
 	.text-center {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
 		width: 80%;
 		flex-direction: column;
 	}
