@@ -11,7 +11,7 @@
 
 <svelte:head>
 	<title>{appName}</title>
-	<meta name="description" content={`The ${appName} website`} />
+	<meta name="description" content="through Adaptability" />
 </svelte:head>
 
 <main>

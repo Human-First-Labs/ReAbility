@@ -72,14 +72,13 @@
 			<Turnstile siteKey={VITE_TURNSTILE_SITE_KEY} on:callback={tokenGetter} />
 		</div>
 	</Cover>
-{:else}
-	{@render children()}
 {/if}
+{@render children()}
 
 <style>
 	.popup {
 		display: flex;
-		background-color: white;
+		background-color: var(--primary-color);
 		align-items: center;
 		flex-direction: column;
 		border-radius: 16px;
@@ -88,5 +87,11 @@
 		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 		text-align: center;
 		gap: 20px;
+	}
+
+	h2,
+	h4,
+	small {
+		margin: 0;
 	}
 </style>
