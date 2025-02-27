@@ -10,8 +10,8 @@
 }
 
 .outlined-text {
-	-webkit-text-fill-color: transparent;
-	-webkit-text-stroke: 1px;
+	color: transparent;
+	-webkit-text-stroke: 1px var(--text-color);
 }
 
 .menu-item {
