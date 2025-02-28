@@ -1,17 +1,23 @@
+@font-face {
+	font-family: 'Evogria';
+	src: url('$lib/Evogria.otf') format('opentype');
+}
+
 :root {
 	/* this might need to change */
-	--general-font: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	--general-font: 'Evogria', sans-serif;
 	--primary-color: #152b21;
 	--text-color: #cfcdb2;
 }
 
 * {
-	line-height: 0.9;
+	line-height: 1;
 }
 
 .outlined-text {
 	color: transparent;
 	-webkit-text-stroke: 1px var(--text-color);
+	paint-order: stroke fill;
 }
 
 .menu-item {
