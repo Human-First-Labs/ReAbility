@@ -1,8 +1,4 @@
-<script lang="ts">
-	import { fly } from 'svelte/transition';
-</script>
-
-<div class="absolute" in:fly={{ x: 50, duration: 500 }} out:fly={{ x: -50, duration: 500 }}>
+<div class="absolute">
 	<a href="/research/wheelchairs">
 		<h5 class="menu-item">Wheelchairs</h5>
 	</a>

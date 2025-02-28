@@ -3,9 +3,8 @@
 	import type { LayoutProps } from '../$types';
 	import Arrow from '$lib/Arrow.svelte';
 	import { page } from '$app/state';
-	import { fly } from 'svelte/transition';
-
-	const order = ['', 'research', 'reboot', 'resources', 'reach-out'];
+	import { navigationOrder } from '$lib/content/util';
+	import { flyIn, flyOut, type FlyDirection } from '$lib/transition';
 
 	let landingPage = $derived.by<{
 		word: string;
@@ -27,22 +26,24 @@
 	});
 
 	let previous = $derived.by(() => {
-		let index = order.indexOf(page.url.pathname.replace('/', ''));
+		let index = navigationOrder.indexOf(page.url.pathname);
 		if (index === 0) {
-			return order[order.length - 1];
+			return navigationOrder[navigationOrder.length - 1];
 		} else {
-			return order[index - 1];
+			return navigationOrder[index - 1];
 		}
 	});
 
 	let next = $derived.by(() => {
-		let index = order.indexOf(page.url.pathname.replace('/', ''));
-		if (index === order.length - 1) {
-			return order[0];
+		let index = navigationOrder.indexOf(page.url.pathname);
+		if (index === navigationOrder.length - 1) {
+			return navigationOrder[0];
 		} else {
-			return order[index + 1];
+			return navigationOrder[index + 1];
 		}
 	});
+
+	let direction = $state<FlyDirection>('right');
 
 	let { children }: LayoutProps = $props();
 </script>
@@ -50,30 +51,30 @@
 <Content>
 	<div class="fullscreen">
 		{#if !landingPage.hidden}
-			<div
-				class="text-center"
-				out:fly={{ y: 50, duration: 500 }}
-				in:fly={{ y: -50, duration: 500 }}
-			>
+			<div class="text-center">
 				<div class="column menu-items">
-					<div class="relative">
-						{@render children()}
-					</div>
+					{#each navigationOrder.filter((order) => order) as title}
+						{#if title === page.url.pathname}
+							<div class="relative" in:flyIn={direction} out:flyOut={direction}>
+								{@render children()}
+							</div>
+						{/if}
+					{/each}
 					<hr class="divider" />
 				</div>
 				<div class="row first-row">
 					<div class="row center">
-						<a class="big-icon before" href={`/${previous}`}>
+						<a class="big-icon before" href={`${previous}`} onclick={() => (direction = 'left')}>
 							<Arrow />
 						</a>
 						<h1 class="big-text">RE</h1>
 						<div class="relative-2">
-							{#each order.filter((order) => order) as title}
-								{#if title === page.url.pathname.replace('/', '')}
+							{#each navigationOrder.filter((order) => order) as title}
+								{#if title === page.url.pathname}
 									<h1
 										class="big-text outlined-text absolute"
-										in:fly={{ x: 50, duration: 500 }}
-										out:fly={{ x: -50, duration: 500 }}
+										in:flyIn={direction}
+										out:flyOut={direction}
 									>
 										{landingPage.word}
 									</h1>
@@ -82,7 +83,7 @@
 						</div>
 					</div>
 
-					<a class="big-icon" href={`/${next}`}>
+					<a class="big-icon" href={`${next}`} onclick={() => (direction = 'right')}>
 						<Arrow />
 					</a>
 				</div>
