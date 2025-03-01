@@ -4,6 +4,7 @@
 	import '../lib/toolkit/default-hfl.css';
 	import '../lib/project.css';
 	import Footer from '$lib/Footer.svelte';
+	import MainLayout from '$lib/MainLayout.svelte';
 
 	const appName = 'Reability';
 
@@ -18,7 +19,9 @@
 <main>
 	<SupabaseLayout {...restOfProps}>
 		<!-- <Topbar /> -->
-		{@render children()}
+		<MainLayout>
+			{@render children()}
+		</MainLayout>
 		<Footer />
 	</SupabaseLayout>
 </main>

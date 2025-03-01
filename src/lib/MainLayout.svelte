@@ -1,29 +1,48 @@
 <script lang="ts">
 	import Content from '$lib/toolkit/Content.svelte';
-	import type { LayoutProps } from '../$types';
 	import Arrow from '$lib/Arrow.svelte';
 	import { page } from '$app/state';
 	import { navigationOrder } from '$lib/content/util';
 	import { flyIn, flyOut, type FlyDirection } from '$lib/transition';
 	import { swipe } from 'svelte-gestures';
 	import { goto } from '$app/navigation';
+	import type { LayoutProps } from '../routes/$types';
 
-	let landingPage = $derived.by<{
+	let pageState = $derived.by<{
 		word: string;
-		hidden: boolean;
+		main: boolean;
 	}>(() => {
+		if (page.url.pathname.includes('/resources')) {
+			return {
+				word: 'SOURCES',
+				main: page.url.pathname === '/resources'
+			};
+		} else if (page.url.pathname.includes('/reach-out')) {
+			return {
+				word: 'ACH OUT',
+				main: page.url.pathname === '/reach-out'
+			};
+		} else if (page.url.pathname.includes('/reboot')) {
+			return {
+				word: 'BOOT',
+				main: page.url.pathname === '/reboot'
+			};
+		} else if (page.url.pathname.includes('/research')) {
+			return {
+				word: 'SEARCH',
+				main: page.url.pathname === '/research'
+			};
+		}
 		if (page.url.pathname === '/') {
-			return { word: '', hidden: false };
-		} else if (page.url.pathname === '/resources') {
-			return { word: 'SOURCES', hidden: false };
-		} else if (page.url.pathname === '/reach-out') {
-			return { word: 'ACH OUT', hidden: false };
-		} else if (page.url.pathname === '/reboot') {
-			return { word: 'BOOT', hidden: false };
-		} else if (page.url.pathname === '/research') {
-			return { word: 'SEARCH', hidden: false };
+			return {
+				main: true,
+				word: ''
+			};
 		} else {
-			return { word: '', hidden: true };
+			return {
+				main: false,
+				word: ''
+			};
 		}
 	});
 
@@ -47,70 +66,76 @@
 
 	let direction = $state<FlyDirection>('right');
 
-	let { children }: LayoutProps = $props();
+	let { children }: Omit<LayoutProps, 'data'> = $props();
 </script>
 
 <Content>
 	<div
 		class="fullscreen"
-		use:swipe={() => ({ timeframe: 300, minSwipeDistance: 60 })}
-		onswipe={(event) => {
-			if (event.detail.direction === 'left') {
-				direction = 'right';
-				goto(next);
-			} else {
-				direction = 'left';
-				goto(previous);
-			}
-		}}
+		use:swipe={() => (pageState.main ? { timeframe: 300, minSwipeDistance: 60 } : {})}
+		onswipe={pageState.main
+			? (event) => {
+					if (event.detail.direction === 'left') {
+						direction = 'right';
+						goto(next);
+					} else {
+						direction = 'left';
+						goto(previous);
+					}
+				}
+			: undefined}
 	>
-		{#if !landingPage.hidden}
-			<div class="text-center">
-				<div class="column menu-items">
-					{#each navigationOrder.filter((order) => order) as title}
-						{#if title === page.url.pathname}
-							<div class="relative" in:flyIn={direction} out:flyOut={direction}>
-								{@render children()}
-							</div>
-						{/if}
-					{/each}
-					<hr class="divider" />
-				</div>
-				<div class="row first-row">
-					<div class="row center">
+		<div class="text-center">
+			<div class="column menu-items">
+				{#each navigationOrder.filter((order) => order) as title}
+					{#if (title !== '/' && page.url.pathname.includes(title)) || page.url.pathname === title}
+						<div class="relative" in:flyIn={direction} out:flyOut={direction}>
+							{@render children()}
+						</div>
+					{/if}
+				{/each}
+				<hr class="divider" />
+			</div>
+			<div class="row first-row">
+				<div class="row center">
+					{#if pageState.main}
 						<a class="big-icon before" href={`${previous}`} onclick={() => (direction = 'left')}>
 							<Arrow />
 						</a>
-						<h1 class="big-text">RE</h1>
-						<div class="relative-2">
-							{#each navigationOrder.filter((order) => order) as title}
-								{#if title === page.url.pathname}
-									<h1
-										class="big-text outlined-text absolute"
-										in:flyIn={direction}
-										out:flyOut={direction}
-									>
-										{landingPage.word}
-									</h1>
-								{/if}
-							{/each}
+					{:else}
+						<div class="hidden big-icon">
+							<Arrow />
 						</div>
+					{/if}
+					<h1 class="big-text">RE</h1>
+					<div class="relative-2">
+						{#each navigationOrder.filter((order) => order) as title}
+							{#if (title !== '/' && page.url.pathname.includes(title)) || page.url.pathname === title}
+								<h1
+									class="big-text outlined-text absolute"
+									in:flyIn={direction}
+									out:flyOut={direction}
+								>
+									{pageState.word}
+								</h1>
+							{/if}
+						{/each}
 					</div>
+				</div>
 
+				{#if pageState.main}
 					<a class="big-icon" href={`${next}`} onclick={() => (direction = 'right')}>
 						<Arrow />
 					</a>
-				</div>
-				<div class="row center">
-					<div class="hidden big-icon">
-						<Arrow />
-					</div>
-					<h1 class="big-text">ABILITY</h1>
-				</div>
+				{/if}
 			</div>
-		{:else}
-			{@render children()}
-		{/if}
+			<div class="row center">
+				<div class="hidden big-icon">
+					<Arrow />
+				</div>
+				<h1 class="big-text">ABILITY</h1>
+			</div>
+		</div>
 	</div>
 </Content>
 

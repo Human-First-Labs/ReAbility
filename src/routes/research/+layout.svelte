@@ -1,3 +1,9 @@
+<script lang="ts">
+	import type { LayoutProps } from '../$types';
+
+	let { children }: LayoutProps = $props();
+</script>
+
 <div class="absolute">
 	<a href="/research/wheelchairs">
 		<h5 class="menu-item">Wheelchairs</h5>
@@ -6,6 +12,8 @@
 		<h5 class="menu-item">Wheelchair Accessible Vehicles (WAV)</h5>
 	</a>
 </div>
+
+{@render children()}
 
 <style>
 	.absolute {
