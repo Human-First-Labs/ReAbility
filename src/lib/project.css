@@ -23,7 +23,7 @@
 .menu-item {
 	text-decoration: underline;
 	text-transform: uppercase;
-	font-size: 2vw;
+	font-size: 3vw;
 	margin: 0;
 }
 
@@ -33,6 +33,6 @@ a {
 
 @media screen and (min-width: 1200px) {
 	.menu-item {
-		font-size: 2em;
+		font-size: 3em;
 	}
 }

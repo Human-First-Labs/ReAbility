@@ -5,6 +5,8 @@
 	import { page } from '$app/state';
 	import { navigationOrder } from '$lib/content/util';
 	import { flyIn, flyOut, type FlyDirection } from '$lib/transition';
+	import { swipe } from 'svelte-gestures';
+	import { goto } from '$app/navigation';
 
 	let landingPage = $derived.by<{
 		word: string;
@@ -49,7 +51,19 @@
 </script>
 
 <Content>
-	<div class="fullscreen">
+	<div
+		class="fullscreen"
+		use:swipe={() => ({ timeframe: 300, minSwipeDistance: 60 })}
+		onswipe={(event) => {
+			if (event.detail.direction === 'left') {
+				direction = 'right';
+				goto(next);
+			} else {
+				direction = 'left';
+				goto(previous);
+			}
+		}}
+	>
 		{#if !landingPage.hidden}
 			<div class="text-center">
 				<div class="column menu-items">
@@ -138,7 +152,7 @@
 
 	.big-text {
 		margin: 0;
-		font-size: 8vw;
+		font-size: 10vw;
 		font-weight: 800;
 	}
 
@@ -183,7 +197,7 @@
 
 	@media screen and (min-width: 1200px) {
 		.big-text {
-			font-size: 8em;
+			font-size: 10em;
 		}
 
 		.big-icon {
