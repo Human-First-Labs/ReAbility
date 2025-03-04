@@ -2,11 +2,12 @@
 	import Content from '$lib/toolkit/Content.svelte';
 	import Arrow from '$lib/Arrow.svelte';
 	import { page } from '$app/state';
-	import { navigationOrder } from '$lib/content/util';
+	import { navigationOrder, siteSections, type SiteSection } from '$lib/content/util';
 	import { flyIn, flyOut, type FlyDirection } from '$lib/transition';
 	import { swipe } from 'svelte-gestures';
 	import { goto } from '$app/navigation';
 	import type { LayoutProps } from '../routes/$types';
+	import { fade } from 'svelte/transition';
 
 	let pageState = $derived.by<{
 		word: string;
@@ -66,6 +67,16 @@
 
 	let direction = $state<FlyDirection>('right');
 
+	let currentNavSection: SiteSection = $derived.by(() => {
+		const splitUrl = page.url.pathname.split('/');
+
+		if (siteSections.includes(splitUrl[1] as SiteSection)) {
+			return splitUrl[1] as SiteSection;
+		} else {
+			return '';
+		}
+	});
+
 	let { children }: Omit<LayoutProps, 'data'> = $props();
 </script>
 
@@ -87,35 +98,32 @@
 	>
 		<div class="text-center">
 			<div class="column menu-items">
-				{#each navigationOrder.filter((order) => order) as title}
-					{#if (title !== '/' && page.url.pathname.includes(title)) || page.url.pathname === title}
-						<div class="relative" in:flyIn={direction} out:flyOut={direction}>
-							{@render children()}
-						</div>
-					{/if}
-				{/each}
+				<div class="relative">
+					{#each navigationOrder.filter((order) => order) as title}
+						{#if title.split('/')[1] === currentNavSection}
+							<div in:flyIn={direction} out:flyOut={direction}>
+								{@render children()}
+							</div>
+						{/if}
+					{/each}
+				</div>
 				<hr class="divider" />
 			</div>
 			<div class="row first-row">
 				<div class="row center">
-					{#if pageState.main}
-						<a class="big-icon before" href={`${previous}`} onclick={() => (direction = 'left')}>
-							<Arrow />
-						</a>
-					{:else}
-						<div class="hidden big-icon">
-							<Arrow />
-						</div>
-					{/if}
+					<!--  -->
+					<a
+						class={['big-icon', 'before', !pageState.main ? 'before-hidden' : undefined]}
+						href={`${previous}`}
+						onclick={() => (direction = 'left')}
+					>
+						<Arrow />
+					</a>
 					<h1 class="big-text">RE</h1>
 					<div class="relative-2">
 						{#each navigationOrder.filter((order) => order) as title}
-							{#if (title !== '/' && page.url.pathname.includes(title)) || page.url.pathname === title}
-								<h1
-									class="big-text outlined-text absolute"
-									in:flyIn={direction}
-									out:flyOut={direction}
-								>
+							{#if title.split('/')[1] === currentNavSection}
+								<h1 class="big-text outlined-text" in:flyIn={direction} out:flyOut={direction}>
 									{pageState.word}
 								</h1>
 							{/if}
@@ -124,7 +132,16 @@
 				</div>
 
 				{#if pageState.main}
-					<a class="big-icon" href={`${next}`} onclick={() => (direction = 'right')}>
+					<a
+						class="big-icon"
+						href={`${next}`}
+						in:fade={{
+							duration: 500
+						}}
+						out:fade={{
+							duration: 500
+						}}
+					>
 						<Arrow />
 					</a>
 				{/if}
@@ -133,7 +150,21 @@
 				<div class="hidden big-icon">
 					<Arrow />
 				</div>
-				<h1 class="big-text">ABILITY</h1>
+				{#if (page.url.pathname === '/' && pageState.main) || currentNavSection === ''}
+					<h1
+						class="big-text"
+						in:fade={{
+							duration: 500
+						}}
+						out:fade={{
+							duration: 500
+						}}
+					>
+						ABILITY
+					</h1>
+				{:else}
+					<h1 class="hidden big-text">-</h1>
+				{/if}
 			</div>
 		</div>
 	</div>
@@ -149,15 +180,16 @@
 	.menu-items {
 		width: 95%;
 		margin: auto;
+		min-height: 160px;
+		align-items: end;
+		justify-content: end;
 	}
 
 	.relative {
 		position: relative;
 		width: 100%;
-		margin: auto;
 		align-items: end;
 		justify-content: end;
-		text-align: right;
 	}
 
 	.relative-2 {
@@ -209,6 +241,13 @@
 	.before {
 		rotate: 180deg;
 		margin-right: 10px;
+		transition: opacity 0.5s;
+		opacity: 1;
+	}
+
+	.before-hidden {
+		opacity: 0;
+		pointer-events: none;
 	}
 
 	.hidden {
@@ -216,17 +255,13 @@
 		margin-right: 10px;
 	}
 
-	.absolute {
-		position: absolute;
-	}
-
 	@media screen and (min-width: 1200px) {
 		.big-text {
-			font-size: 10em;
+			font-size: 6em;
 		}
 
 		.big-icon {
-			font-size: 10em;
+			font-size: 6em;
 		}
 	}
 </style>
