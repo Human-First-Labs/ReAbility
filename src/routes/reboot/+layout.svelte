@@ -16,7 +16,7 @@
 					class="back-icon small-icon"
 					in:fade={{ duration: 500 }}
 					out:fade={{ duration: 500 }}
-					href="/reach-out"
+					href="/reboot"
 				>
 					<Arrow />
 				</a>
@@ -37,7 +37,7 @@
 					class="back-icon small-icon"
 					in:fade={{ duration: 500 }}
 					out:fade={{ duration: 500 }}
-					href="/reach-out"
+					href="/reboot"
 				>
 					<Arrow />
 				</a>

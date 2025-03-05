@@ -15,7 +15,6 @@
 
 <style>
 	a {
-		line-height: 1;
 		text-decoration: none;
 		color: var(--primary-color);
 		cursor: pointer;

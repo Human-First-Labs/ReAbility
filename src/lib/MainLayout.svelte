@@ -97,18 +97,16 @@
 			: undefined}
 	>
 		<div class="text-center">
-			<div class="column menu-items">
-				<div class="relative">
-					{#each navigationOrder.filter((order) => order) as title}
-						{#if title.split('/')[1] === currentNavSection}
-							<div in:flyIn={direction} out:flyOut={direction} class="full-width">
-								{@render children()}
-							</div>
-						{/if}
-					{/each}
-				</div>
-				<hr class="divider" />
+			<div class={['relative', pageState.main ? 'minimum-height' : undefined]}>
+				{#each navigationOrder.filter((order) => order) as title}
+					{#if title.split('/')[1] === currentNavSection}
+						<div in:flyIn={direction} out:flyOut={direction} class="full-width">
+							{@render children()}
+						</div>
+					{/if}
+				{/each}
 			</div>
+			<hr class="divider" />
 			<div class="row first-row">
 				<div class="row center">
 					<a
@@ -154,21 +152,17 @@
 				<div class="hidden big-icon">
 					<Arrow />
 				</div>
-				{#if (page.url.pathname === '/' && pageState.main) || currentNavSection === ''}
-					<h1
-						class="big-text"
-						in:fade={{
-							duration: 500
-						}}
-						out:fade={{
-							duration: 500
-						}}
-					>
-						ABILITY
-					</h1>
-				{:else}
+				<!-- {#if (page.url.pathname === '/' && pageState.main) || currentNavSection === ''}
+					in:fade={{
+						duration: 500
+					}}
+					out:fade={{
+						duration: 500
+					}} -->
+				<h1 class="big-text">ABILITY</h1>
+				<!-- {:else}
 					<h1 class="hidden big-text">-</h1>
-				{/if}
+				{/if} -->
 			</div>
 		</div>
 	</div>
@@ -181,15 +175,7 @@
 		background-color: var(--primary-color);
 		align-items: center;
 		justify-content: center;
-	}
-
-	.menu-items {
-		width: 95%;
-		margin: auto;
-		/* NOT sure if this is better or not, keep here for now */
-		min-height: 160px;
-		align-items: end;
-		justify-content: end;
+		padding: var(--topbar-mobile-height) 0;
 	}
 
 	.relative {
@@ -199,15 +185,15 @@
 		justify-content: end;
 	}
 
+	.minimum-height {
+		min-height: 160px;
+	}
+
 	.relative-2 {
 		position: relative;
 		width: 100%;
 		align-items: center;
 	}
-
-	/* .big-title {
-		padding: 0 5%;
-	} */
 
 	.big-text {
 		margin: 0;
@@ -220,12 +206,23 @@
 	}
 
 	.text-center {
-		/* position: absolute;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%); */
 		width: 80%;
 		flex-direction: column;
+		max-height: 100%;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+
+	::-webkit-scrollbar {
+		display: none;
+	}
+
+	::-webkit-scrollbar-thumb {
+		display: none;
+	}
+
+	::-webkit-scrollbar-corner {
+		display: none;
 	}
 
 	.divider {

@@ -19,7 +19,6 @@
 		cursor: pointer;
 		border: 0;
 		background-color: transparent;
-		line-height: 1;
 		color: var(--color-tex);
 	}
 </style>

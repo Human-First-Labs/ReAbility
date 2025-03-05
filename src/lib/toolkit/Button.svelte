@@ -78,7 +78,6 @@
 		border: 0;
 		border-radius: 2em;
 		font-weight: 700;
-		line-height: 1;
 		font-family: var(--general-font);
 	}
 	.primary {
