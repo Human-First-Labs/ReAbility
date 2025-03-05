@@ -143,6 +143,7 @@
 						out:fade={{
 							duration: 500
 						}}
+						onclick={() => (direction = 'right')}
 					>
 						<Arrow />
 					</a>
