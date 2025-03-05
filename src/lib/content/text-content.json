@@ -1,7 +1,42 @@
-[
-	{
-		"key": "home-section-1",
-		"en": "",
-		"mt": ""
+{
+	"about-us-title": {
+		"en": "about us",
+		"mt": "Min aħna"
+	},
+	"wheelchairs-title": {
+		"en": "Wheelchairs",
+		"mt": "Siġġijiet tar-roti"
+	},
+	"wav-title": {
+		"en": "Wheelchair Accessible Vehicles (WAV)",
+		"mt": "Vetturi Aċċessibbli bis-siġġijiet tar-roti (WAV)"
+	},
+	"physical-changes-title": {
+		"en": "Physical Changes",
+		"mt": "Bidliet Fiżiċi"
+	},
+	"adaptations-title": {
+		"en": "Adaptations",
+		"mt": "Adattamenti"
+	},
+	"accessibility-map-title": {
+		"en": "Accessibility Map",
+		"mt": "Mappa ta' Aċċessibbiltà"
+	},
+	"tools-title": {
+		"en": "Tools",
+		"mt": "Għodda"
+	},
+	"merch-title": {
+		"en": "Buy Merch",
+		"mt": "Ixtri"
+	},
+	"contact-title": {
+		"en": "Contact Us",
+		"mt": "Ikkuntattjana"
+	},
+	"share-with-us-title": {
+		"en": "Share what we do",
+		"mt": "Għildhom bina"
 	}
-]
+}

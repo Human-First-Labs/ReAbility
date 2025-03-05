@@ -101,7 +101,7 @@
 				<div class="relative">
 					{#each navigationOrder.filter((order) => order) as title}
 						{#if title.split('/')[1] === currentNavSection}
-							<div in:flyIn={direction} out:flyOut={direction}>
+							<div in:flyIn={direction} out:flyOut={direction} class="full-width">
 								{@render children()}
 							</div>
 						{/if}
@@ -111,9 +111,13 @@
 			</div>
 			<div class="row first-row">
 				<div class="row center">
-					<!--  -->
 					<a
-						class={['big-icon', 'before', !pageState.main ? 'before-hidden' : undefined]}
+						class={[
+							'big-icon',
+							'back-icon',
+							'before',
+							!pageState.main ? 'before-hidden' : undefined
+						]}
 						href={`${previous}`}
 						onclick={() => (direction = 'left')}
 					>
@@ -175,11 +179,14 @@
 		height: 100vh;
 		width: 100vw;
 		background-color: var(--primary-color);
+		align-items: center;
+		justify-content: center;
 	}
 
 	.menu-items {
 		width: 95%;
 		margin: auto;
+		/* NOT sure if this is better or not, keep here for now */
 		min-height: 160px;
 		align-items: end;
 		justify-content: end;
@@ -202,22 +209,21 @@
 		padding: 0 5%;
 	} */
 
-	.big-icon {
-		font-size: 10vw;
-		height: fit-content;
-	}
-
 	.big-text {
 		margin: 0;
 		font-size: 10vw;
 		font-weight: 800;
 	}
 
+	.full-width {
+		width: 100%;
+	}
+
 	.text-center {
-		position: absolute;
+		/* position: absolute;
 		left: 50%;
 		top: 50%;
-		transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%); */
 		width: 80%;
 		flex-direction: column;
 	}
@@ -239,7 +245,6 @@
 	}
 
 	.before {
-		rotate: 180deg;
 		margin-right: 10px;
 		transition: opacity 0.5s;
 		opacity: 1;
@@ -257,10 +262,6 @@
 
 	@media screen and (min-width: 1200px) {
 		.big-text {
-			font-size: 6em;
-		}
-
-		.big-icon {
 			font-size: 6em;
 		}
 	}

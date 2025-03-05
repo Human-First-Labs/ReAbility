@@ -4,10 +4,10 @@
 }
 
 :root {
-	/* this might need to change */
 	--general-font: 'Evogria', sans-serif;
 	--primary-color: #152b21;
 	--text-color: #cfcdb2;
+	--topbar-mobile-height: 60px;
 }
 
 * {
@@ -31,8 +31,36 @@ a {
 	color: var(--secondary-color) !important;
 }
 
+.big-icon {
+	font-size: 10vw;
+	height: fit-content;
+}
+
+.small-icon {
+	font-size: 5vw;
+}
+
+.back-icon {
+	rotate: 180deg;
+}
+
+.section-layout {
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 10px;
+	width: 100%;
+}
+
 @media screen and (min-width: 1200px) {
 	.menu-item {
 		font-size: 2em;
+	}
+
+	.big-icon {
+		font-size: 6em;
+	}
+
+	.small-icon {
+		font-size: 3em;
 	}
 }

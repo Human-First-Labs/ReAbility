@@ -261,7 +261,6 @@
 	});
 </script>
 
-<!-- class={['target-div', `${checked ? '' : 'hide'}`]} -->
 <div
 	bind:this={ref}
 	class="target-div"
@@ -276,8 +275,4 @@
 		z-index: 1;
 		min-height: fit-content;
 	}
-
-	/* .hide {
-		display: none;
-	} */
 </style>

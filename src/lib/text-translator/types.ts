@@ -1,6 +1,8 @@
+import content from '../content/text-content.json';
+
 export type Language = 'mt' | 'en';
 
-export type ContentName = 'section-1' | 'section-2';
+export type ContentName = keyof typeof content;
 
 export type Content = {
 	[key3 in ContentName]?: {
