@@ -101,7 +101,7 @@
 
 <style>
 	div {
-		position: absolute;
+		position: fixed;
 		background-color: var(--primary-color);
 		border-radius: 5px;
 		padding: 10px;

@@ -13,7 +13,10 @@
 		"longitude": 14.4422,
 		"accessibility-information": {
 			"overall-rating-1-5": 4,
-			"text": "",
+			"text": {
+				"en": "",
+				"mt": ""
+			},
 			"specific-issues": [
 				{
 					"name": {
@@ -27,50 +30,55 @@
 					"image": ""
 				}
 			],
-			"accessibility-features": [
+			"accessibility-features-1-5": {
+				"parking": 4,
+				"toilets": 3,
+				"paths": 4,
+				"seating": 4,
+				"shelter": 4,
+				"assistance": 4
+			}
+		}
+	},
+	{
+		"id": 2,
+		"name": {
+			"en": "Valletta",
+			"mt": "Il-Belt Valletta"
+		},
+		"description": {
+			"en": "Valletta is the capital city of Malta. It is a UNESCO World Heritage Site, and is known for its historic buildings, museums, and gardens.",
+			"mt": "Il-Belt Valletta hi l-kapitali ta' Malta. Hi sit tal-Patrimonju Dinji tal-UNESCO, u hija magħrufa għall-bini storiku żgħir, mużewijiet, u ġonna."
+		},
+		"latitude": 35.8989,
+		"longitude": 14.5146,
+		"accessibility-information": {
+			"overall-rating-1-5": 3,
+			"text": {
+				"en": "",
+				"mt": ""
+			},
+			"specific-issues": [
 				{
 					"name": {
-						"en": "Parking",
-						"mt": "Parking"
-					},
-					"rating-1-5": 4
-				},
-				{
-					"name": {
-						"en": "Toilets",
+						"en": "",
 						"mt": ""
 					},
-					"rating-1-5": 3
-				},
-				{
-					"name": {
-						"en": "Paths",
+					"description": {
+						"en": "",
 						"mt": ""
 					},
-					"rating-1-5": 4
-				},
-				{
-					"name": {
-						"en": "Seating",
-						"mt": ""
-					},
-					"rating-1-5": 4
-				},
-				{
-					"name": {
-						"en": "Shelter",
-						"mt": ""
-					},
-					"rating-1-5": 4
-				},
-				{
-					"name": {
-						"en": "Assistance",
-						"mt": ""
-					},
-					"rating-1-5": 4
+					"image": ""
 				}
-			]
+			],
+			"accessibility-features-1-5": {
+				"parking": 4,
+				"toilets": 3,
+				"paths": 4,
+				"seating": 4,
+				"shelter": 4,
+				"assistance": 4
+			}
 		}
 	}
 ]
