@@ -32,7 +32,10 @@
 			</button>
 		</div>
 		<div class="half-width column">
-			<p>If you want to share this website physically, you can try printing the below</p>
+			<p>
+				If you want to share this website physically, you can try downloading and printing the
+				poster below
+			</p>
 			<Link to="" download>Download Poster</Link>
 		</div>
 	</div>
