@@ -18,9 +18,18 @@
 </svelte:head>
 
 <SupabaseLayout {...restOfProps}>
-	<SimpleTopbar />
-	<MainLayout>
-		{@render children()}
-	</MainLayout>
-	<Footer />
+	<div class="fullscreen">
+		<SimpleTopbar />
+		<MainLayout>
+			{@render children()}
+		</MainLayout>
+		<Footer />
+	</div>
 </SupabaseLayout>
+
+<style>
+	.fullscreen {
+		height: 100vh;
+		width: 100vw;
+	}
+</style>
