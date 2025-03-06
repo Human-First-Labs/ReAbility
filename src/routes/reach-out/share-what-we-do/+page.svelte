@@ -15,8 +15,8 @@
 	</p>
 	<p>
 		We are committed to never spending any money on advertising, so we can spend any donations we
-		receive and spend any donations we receive on what really matters. Therefore, we rely on people
-		like you to help us spread the word.
+		receive on what really matters. Therefore, we rely on people like you to help us spread the
+		word.
 	</p>
 	<div class="row">
 		<div class="half-width column">
