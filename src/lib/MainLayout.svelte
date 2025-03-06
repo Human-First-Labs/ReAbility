@@ -167,6 +167,8 @@
 		align-items: center;
 		justify-content: center;
 		padding: var(--topbar-mobile-height) 0;
+		width: 100%;
+		height: 100%;
 	}
 
 	.relative {
