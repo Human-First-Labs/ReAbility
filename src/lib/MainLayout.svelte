@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Content from '$lib/toolkit/Content.svelte';
 	import Arrow from '$lib/Arrow.svelte';
 	import { page } from '$app/state';
 	import { navigationOrder, siteSections, type SiteSection } from '$lib/content/util';
@@ -80,94 +79,87 @@
 	let { children }: Omit<LayoutProps, 'data'> = $props();
 </script>
 
-<Content>
-	<div
-		class="fullscreen"
-		use:swipe={() => (pageState.main ? { timeframe: 300, minSwipeDistance: 60 } : {})}
-		onswipe={pageState.main
-			? (event) => {
-					if (event.detail.direction === 'left') {
-						direction = 'right';
-						goto(next);
-					} else {
-						direction = 'left';
-						goto(previous);
-					}
+<div
+	class="fullscreen"
+	use:swipe={() => (pageState.main ? { timeframe: 300, minSwipeDistance: 60 } : {})}
+	onswipe={pageState.main
+		? (event) => {
+				if (event.detail.direction === 'left') {
+					direction = 'right';
+					goto(next);
+				} else {
+					direction = 'left';
+					goto(previous);
 				}
-			: undefined}
-	>
-		<div class="text-center">
-			<div class={['relative', pageState.main ? 'minimum-height' : undefined]}>
-				{#each navigationOrder.filter((order) => order) as title}
-					{#if title.split('/')[1] === currentNavSection}
-						<div in:flyIn={direction} out:flyOut={direction} class="full-width">
-							{@render children()}
-						</div>
-					{/if}
-				{/each}
-			</div>
-			<hr class="divider" />
-			<div class="row first-row">
-				<div class="row center">
-					<a
-						class={[
-							'big-icon',
-							'back-icon',
-							'before',
-							!pageState.main ? 'before-hidden' : undefined
-						]}
-						href={`${previous}`}
-						onclick={() => (direction = 'left')}
-					>
-						<Arrow />
-					</a>
-					<h1 class="big-text">RE</h1>
-					<div class="relative-2">
-						{#each navigationOrder.filter((order) => order) as title}
-							{#if title.split('/')[1] === currentNavSection}
-								<h1 class="big-text outlined-text" in:flyIn={direction} out:flyOut={direction}>
-									{pageState.word}
-								</h1>
-							{/if}
-						{/each}
+			}
+		: undefined}
+>
+	<div class="text-center">
+		<div class={['relative', pageState.main ? 'minimum-height' : undefined]}>
+			{#each navigationOrder.filter((order) => order) as title}
+				{#if title.split('/')[1] === currentNavSection}
+					<div in:flyIn={direction} out:flyOut={direction} class="full-width">
+						{@render children()}
 					</div>
-				</div>
-
-				{#if pageState.main}
-					<a
-						class="big-icon"
-						href={`${next}`}
-						in:fade={{
-							duration: 500
-						}}
-						out:fade={{
-							duration: 500
-						}}
-						onclick={() => (direction = 'right')}
-					>
-						<Arrow />
-					</a>
 				{/if}
-			</div>
+			{/each}
+		</div>
+		<hr class="divider" />
+		<div class="row first-row">
 			<div class="row center">
-				<div class="hidden big-icon">
+				<a
+					class={['big-icon', 'back-icon', 'before', !pageState.main ? 'before-hidden' : undefined]}
+					href={`${previous}`}
+					onclick={() => (direction = 'left')}
+				>
 					<Arrow />
+				</a>
+				<h1 class="big-text">RE</h1>
+				<div class="relative-2">
+					{#each navigationOrder.filter((order) => order) as title}
+						{#if title.split('/')[1] === currentNavSection}
+							<h1 class="big-text outlined-text" in:flyIn={direction} out:flyOut={direction}>
+								{pageState.word}
+							</h1>
+						{/if}
+					{/each}
 				</div>
-				<!-- {#if (page.url.pathname === '/' && pageState.main) || currentNavSection === ''}
+			</div>
+
+			{#if pageState.main}
+				<a
+					class="big-icon"
+					href={`${next}`}
+					in:fade={{
+						duration: 500
+					}}
+					out:fade={{
+						duration: 500
+					}}
+					onclick={() => (direction = 'right')}
+				>
+					<Arrow />
+				</a>
+			{/if}
+		</div>
+		<div class="row center">
+			<div class="hidden big-icon">
+				<Arrow />
+			</div>
+			<!-- {#if (page.url.pathname === '/' && pageState.main) || currentNavSection === ''}
 					in:fade={{
 						duration: 500
 					}}
 					out:fade={{
 						duration: 500
 					}} -->
-				<h1 class="big-text">ABILITY</h1>
-				<!-- {:else}
+			<h1 class="big-text">ABILITY</h1>
+			<!-- {:else}
 					<h1 class="hidden big-text">-</h1>
 				{/if} -->
-			</div>
 		</div>
 	</div>
-</Content>
+</div>
 
 <style>
 	.fullscreen {
@@ -191,7 +183,6 @@
 	}
 
 	.relative-2 {
-		position: relative;
 		width: 100%;
 		align-items: center;
 	}
@@ -207,11 +198,12 @@
 	}
 
 	.text-center {
-		width: 80%;
+		width: 100%;
 		flex-direction: column;
 		max-height: 100%;
 		overflow-y: auto;
 		overflow-x: hidden;
+		padding: 0 10%;
 	}
 
 	::-webkit-scrollbar {
@@ -258,7 +250,7 @@
 		margin-right: 10px;
 	}
 
-	@media screen and (min-width: 1200px) {
+	@media screen and (min-width: 1000px) {
 		.big-text {
 			font-size: 6em;
 		}

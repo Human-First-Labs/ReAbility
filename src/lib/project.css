@@ -16,7 +16,7 @@
 
 .outlined-text {
 	color: transparent;
-	-webkit-text-stroke: 0.5px var(--text-color);
+	-webkit-text-stroke: 0.1px var(--text-color);
 	paint-order: stroke fill;
 }
 
@@ -52,7 +52,7 @@ a {
 	height: fit-content;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1000px) {
 	.menu-item {
 		font-size: 2em;
 	}

@@ -1,6 +1,7 @@
 import { PUBLIC_SUPABASE_API_KEY, PUBLIC_SUPABASE_PROJECT_ID } from '$env/static/public';
 import type { LayoutLoad } from './$types';
 import { layoutLoad } from '$lib/supabase/util';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 const PUBLIC_SUPABASE_URL = `https://${PUBLIC_SUPABASE_PROJECT_ID}.supabase.co`;
 

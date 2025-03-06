@@ -1,7 +1,65 @@
 <script lang="ts">
-	import Content from '$lib/toolkit/Content.svelte';
+	import { page } from '$app/state';
+	import Link from '$lib/toolkit/Link.svelte';
+	import NotificationBox from '$lib/toolkit/NotificationBox.svelte';
+	import { slide } from 'svelte/transition';
+
+	let copyBox = $state(false);
 </script>
 
-<Content>
-	<h1>Share what we do</h1>
-</Content>
+<div in:slide={{ duration: 500 }} out:slide={{ duration: 500 }} class="fullscreen column">
+	<p>Do you like what we do?</p>
+	<p>
+		Share what we do with your friends and family, and help us reach more people who might need our
+		help or can help us.
+	</p>
+	<p>
+		We are committed to never spending any money on advertising, so we can spend any donations we
+		receive and spend any donations we receive on what really matters. Therefore, we rely on people
+		like you to help us spread the word.
+	</p>
+	<div class="row">
+		<div class="half-width column">
+			<p>If you want to share this website virtually, click below to copy the link</p>
+			<button
+				class="hidden-button column"
+				onclick={() => {
+					navigator.clipboard.writeText(page.url.origin);
+					copyBox = true;
+				}}
+			>
+				{page.url.host}
+			</button>
+		</div>
+		<div class="half-width column">
+			<p>If you want to share this website physically, you can try printing the below</p>
+			<Link to="" download>Download Poster</Link>
+		</div>
+	</div>
+	<p>Thank you!</p>
+</div>
+{#if copyBox}
+	<NotificationBox position="bottom-right" period={2000} onEnd={() => (copyBox = false)}>
+		<p>Link copied to clipboard</p>
+	</NotificationBox>
+{/if}
+
+<style>
+	.fullscreen {
+		width: 100%;
+	}
+
+	.half-width {
+		width: 50%;
+	}
+
+	button {
+		color: var(--secondary-color);
+		margin: 0;
+		border: none;
+		padding: 0;
+		height: fit-content;
+		width: fit-content;
+		font-size: 16px;
+	}
+</style>

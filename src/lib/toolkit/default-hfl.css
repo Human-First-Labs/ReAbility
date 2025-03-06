@@ -12,6 +12,10 @@
 	--success-color: green;
 }
 
+html {
+	overflow: hidden;
+}
+
 body {
 	min-height: 100vh;
 	margin: 0;
@@ -29,6 +33,12 @@ div {
 .column {
 	display: flex;
 	flex-direction: column;
+}
+
+.hidden-button {
+	background-color: transparent;
+	cursor: pointer;
+	border: 0;
 }
 
 * {
