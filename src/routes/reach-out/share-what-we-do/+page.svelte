@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import Link from '$lib/toolkit/Link.svelte';
 	import NotificationBox from '$lib/toolkit/NotificationBox.svelte';
 	import { slide } from 'svelte/transition';
 
@@ -18,7 +17,7 @@
 		receive on what really matters. Therefore, we rely on people like you to help us spread the
 		word.
 	</p>
-	<div class="row">
+	<div class="row gapping">
 		<div class="half-width column">
 			<p>If you want to share this website virtually, click below to copy the link</p>
 			<button
@@ -28,7 +27,7 @@
 					copyBox = true;
 				}}
 			>
-				{page.url.host}
+				Copy Site Link
 			</button>
 		</div>
 		<div class="half-width column">
@@ -36,7 +35,7 @@
 				If you want to share this website physically, you can try downloading and printing the
 				poster below
 			</p>
-			<Link to="" download>Download Poster</Link>
+			<a href="/reach-out/share-what-we-do" download>Download Poster</a>
 		</div>
 	</div>
 	<p>Thank you!</p>
@@ -48,6 +47,10 @@
 {/if}
 
 <style>
+	.gapping {
+		gap: 20px;
+	}
+
 	.fullscreen {
 		width: 100%;
 	}
@@ -64,5 +67,6 @@
 		height: fit-content;
 		width: fit-content;
 		font-size: 16px;
+		text-decoration: underline;
 	}
 </style>

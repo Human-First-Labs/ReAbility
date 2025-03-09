@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Link from './Link.svelte';
 	import Spinner from './svgs/Spinner.svelte';
 
 	interface Props {
@@ -65,9 +64,9 @@
 {/snippet}
 
 {#if onClick.href}
-	<Link to={onClick.href}>
+	<a href={onClick.href}>
 		{@render button()}
-	</Link>
+	</a>
 {:else}
 	{@render button()}
 {/if}

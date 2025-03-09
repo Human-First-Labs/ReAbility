@@ -112,9 +112,18 @@
 				// Populate the popup and set its coordinates
 				// based on the feature found.
 				popup.setLngLat(coordinates).setHTML(title).addTo(map);
+
+				popup.on('click', () => {
+					
+				});
 			});
 
 			map.on('click', 'places', () => {
+				map.getCanvas().style.cursor = '';
+				popup.remove();
+			});
+
+			map.on('click', () => {
 				map.getCanvas().style.cursor = '';
 				popup.remove();
 			});
