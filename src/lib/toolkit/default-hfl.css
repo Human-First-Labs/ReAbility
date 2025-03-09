@@ -46,3 +46,8 @@ div {
 	color: var(--text-color);
 	box-sizing: border-box;
 }
+
+a {
+	color: var(--secondary-color) !important;
+	text-decoration: none;
+}

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import defaultPlaceholder from '../assets/placeholder-image.jpg';
+	import defaultPlaceholder from './assets/placeholder-image.jpg';
 	import Spinner from './svgs/Spinner.svelte';
 
 	interface Props {

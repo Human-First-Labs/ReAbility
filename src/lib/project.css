@@ -27,10 +27,6 @@
 	margin: 0;
 }
 
-a {
-	color: var(--secondary-color) !important;
-}
-
 .big-icon {
 	font-size: 10vw;
 	height: fit-content;
