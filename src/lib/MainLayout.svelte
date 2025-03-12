@@ -118,7 +118,7 @@
 				<div class="relative-2">
 					{#each navigationOrder.filter((order) => order) as title}
 						{#if title.split('/')[1] === currentNavSection}
-							<h1 class="big-text outlined-text" in:flyIn={direction} out:flyOut={direction}>
+							<h1 class="big-text" in:flyIn={direction} out:flyOut={direction}>
 								{pageState.word}
 							</h1>
 						{/if}
@@ -146,17 +146,13 @@
 			<div class="hidden big-icon">
 				<Arrow />
 			</div>
-			<!-- {#if (page.url.pathname === '/' && pageState.main) || currentNavSection === ''}
-					in:fade={{
-						duration: 500
-					}}
-					out:fade={{
-						duration: 500
-					}} -->
-			<h1 class="big-text">ABILITY</h1>
-			<!-- {:else}
-					<h1 class="hidden big-text">-</h1>
-				{/if} -->
+			<h1
+				in:flyIn={direction}
+				out:flyOut={direction}
+				class={['big-text', page.url.pathname !== '/' ? 'outlined-text' : '']}
+			>
+				ABILITY
+			</h1>
 		</div>
 	</div>
 </div>
