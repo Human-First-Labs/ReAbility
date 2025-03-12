@@ -14,29 +14,29 @@
 	}>(() => {
 		if (page.url.pathname.includes('/resources')) {
 			return {
-				word: 'SOURCES',
+				word: 'RESOURCES',
 				main: page.url.pathname === '/resources'
 			};
 		} else if (page.url.pathname.includes('/reach-out')) {
 			return {
-				word: 'ACH OUT',
+				word: 'REACH OUT',
 				main: page.url.pathname === '/reach-out'
 			};
 		} else if (page.url.pathname.includes('/reboot')) {
 			return {
-				word: 'BOOT',
+				word: 'REBOOT',
 				main: page.url.pathname === '/reboot'
 			};
 		} else if (page.url.pathname.includes('/research')) {
 			return {
-				word: 'SEARCH',
+				word: 'RESEARCH',
 				main: page.url.pathname === '/research'
 			};
 		}
 		if (page.url.pathname === '/') {
 			return {
 				main: true,
-				word: ''
+				word: 'RE'
 			};
 		} else {
 			return {
@@ -114,7 +114,7 @@
 				>
 					<Arrow />
 				</a>
-				<h1 class="big-text">RE</h1>
+				<!-- <h1 class="big-text">RE</h1> -->
 				<div class="relative-2">
 					{#each navigationOrder.filter((order) => order) as title}
 						{#if title.split('/')[1] === currentNavSection}
