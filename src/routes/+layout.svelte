@@ -45,9 +45,7 @@
 	<meta name="description" content="through Adaptability" />
 </svelte:head>
 
-{#if !currentLanguage}
-	<p>Loading...</p>
-{:else}
+{#if currentLanguage}
 	<SupabaseLayout {session} {supabase}>
 		<div class="fullscreen">
 			<SimpleTopbar {setLanguageCookie} />
