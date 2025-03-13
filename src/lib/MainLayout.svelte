@@ -238,7 +238,8 @@
 		max-height: 100%;
 		overflow-y: auto;
 		overflow-x: hidden;
-		padding: 0 10%;
+		padding: 5px 10%;
+		/* background-color: red; */
 	}
 
 	::-webkit-scrollbar {
