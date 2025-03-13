@@ -14,29 +14,29 @@
 	}>(() => {
 		if (page.url.pathname.includes('/resources')) {
 			return {
-				word: 'RESOURCES',
+				word: 'SOURCES',
 				main: page.url.pathname === '/resources'
 			};
 		} else if (page.url.pathname.includes('/reach-out')) {
 			return {
-				word: 'REACH OUT',
+				word: 'ACH OUT',
 				main: page.url.pathname === '/reach-out'
 			};
 		} else if (page.url.pathname.includes('/reboot')) {
 			return {
-				word: 'REBOOT',
+				word: 'BOOT',
 				main: page.url.pathname === '/reboot'
 			};
 		} else if (page.url.pathname.includes('/research')) {
 			return {
-				word: 'RESEARCH',
+				word: 'SEARCH',
 				main: page.url.pathname === '/research'
 			};
 		}
 		if (page.url.pathname === '/') {
 			return {
 				main: true,
-				word: 'RE'
+				word: ''
 			};
 		} else {
 			return {
@@ -114,7 +114,7 @@
 				>
 					<Arrow />
 				</a>
-				<!-- <h1 class="big-text">RE</h1> -->
+				<h1 class="big-text outlined-text">RE</h1>
 				<div class="relative-2">
 					{#each navigationOrder.filter((order) => order) as title}
 						{#if title.split('/')[1] === currentNavSection}
@@ -149,7 +149,11 @@
 			<h1
 				in:flyIn={direction}
 				out:flyOut={direction}
-				class={['big-text', page.url.pathname !== '/' ? 'outlined-text' : '']}
+				class={[
+					'big-text',
+					'outlined-text'
+					// page.url.pathname !== '/' ? '' : 'outlined-text'
+				]}
 			>
 				ABILITY
 			</h1>
