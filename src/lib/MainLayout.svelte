@@ -114,12 +114,12 @@
 				>
 					<Arrow />
 				</a>
-				<h1 class="big-text outlined-text">RE</h1>
+				<!-- <h1 class="big-text outlined-text">RE</h1> -->
 				<div class="relative-2">
 					{#each navigationOrder.filter((order) => order) as title}
 						{#if title.split('/')[1] === currentNavSection}
 							<h1 class="big-text" in:flyIn={direction} out:flyOut={direction}>
-								{pageState.word}
+								RE<span class="outlined-text">{pageState.word}</span>
 							</h1>
 						{/if}
 					{/each}
@@ -150,8 +150,8 @@
 				in:flyIn={direction}
 				out:flyOut={direction}
 				class={[
-					'big-text',
-					'outlined-text'
+					'big-text'
+					// 'outlined-text'
 					// page.url.pathname !== '/' ? '' : 'outlined-text'
 				]}
 			>
