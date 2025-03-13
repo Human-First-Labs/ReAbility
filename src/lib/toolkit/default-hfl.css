@@ -41,6 +41,15 @@ div {
 	border: 0;
 }
 
+input,
+textarea {
+	display: flex;
+	padding: 0.5rem;
+	border: 1px solid var(--text-color);
+	border-radius: 0.25rem;
+	background-color: transparent;
+}
+
 * {
 	font-family: var(--general-font);
 	color: var(--text-color);
@@ -50,4 +59,12 @@ div {
 a {
 	color: var(--secondary-color) !important;
 	text-decoration: none;
+}
+
+button {
+	cursor: pointer;
+	border: 0;
+	border-radius: 2em;
+	font-weight: 700;
+	font-family: var(--general-font);
 }

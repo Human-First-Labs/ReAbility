@@ -1,13 +1,20 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, type Snippet } from 'svelte';
 	import { invalidate } from '$app/navigation';
 	import { Turnstile } from 'svelte-turnstile';
-	import type { LayoutProps } from '../../routes/$types';
 
 	import Cover from '$lib/toolkit/Cover.svelte';
+	import type { Session, SupabaseClient, User } from '@supabase/supabase-js';
 
-	let { data, children }: LayoutProps = $props();
-	let { session, supabase } = $derived(data);
+	let {
+		session,
+		supabase,
+		children
+	}: {
+		session: Session | null;
+		supabase: SupabaseClient<any, 'public', any>;
+		children: Snippet;
+	} = $props();
 
 	const VITE_TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY;
 

@@ -12,6 +12,7 @@
 		onClick: {
 			func?: () => void;
 			href?: string;
+			type?: 'button' | 'submit' | 'reset';
 		};
 		/** This will make the onClick event handler not work*/
 		disabled?: boolean;
@@ -46,6 +47,7 @@
 
 {#snippet button()}
 	<button
+		type={onClick.type}
 		class={[
 			`${variant}`,
 			`${size}`,
@@ -72,13 +74,6 @@
 {/if}
 
 <style>
-	button {
-		cursor: pointer;
-		border: 0;
-		border-radius: 2em;
-		font-weight: 700;
-		font-family: var(--general-font);
-	}
 	.primary {
 		background-color: var(--primary-color);
 		color: var(--primary-contrast-color);

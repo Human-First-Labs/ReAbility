@@ -2,6 +2,15 @@
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import LanguageToggle from './text-translator/LanguageToggle.svelte';
+	import type { Language } from './text-translator/types';
+
+	let {
+		setLanguageCookie,
+		loadedLanguage
+	}: {
+		setLanguageCookie: (lang: Language) => void;
+		loadedLanguage?: Language;
+	} = $props();
 
 	let ready = $state(false);
 
@@ -14,7 +23,7 @@
 			axis: 'y'
 		}}
 	>
-		<LanguageToggle />
+		<LanguageToggle {setLanguageCookie} {loadedLanguage} />
 	</header>
 {/if}
 

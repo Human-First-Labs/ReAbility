@@ -57,16 +57,15 @@
 
 	.half-width {
 		width: 50%;
+		justify-content: space-between;
 	}
 
 	button {
 		color: var(--secondary-color);
 		margin: 0;
-		border: none;
 		padding: 0;
 		height: fit-content;
 		width: fit-content;
 		font-size: 16px;
-		text-decoration: underline;
 	}
 </style>
