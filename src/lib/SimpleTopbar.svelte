@@ -30,7 +30,8 @@
 		display: flex;
 		top: 0;
 		position: fixed;
-		/* height: var(--topbar-mobile-height); */
+		height: var(--topbar-mobile-height);
+		background-color: var(--primary-color);
 		width: 100%;
 		align-items: center;
 		justify-content: flex-end;

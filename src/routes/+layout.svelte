@@ -47,13 +47,13 @@
 
 {#if currentLanguage}
 	<SupabaseLayout {session} {supabase}>
-		<SimpleTopbar {setLanguageCookie} />
 		<div class="fullscreen">
+			<SimpleTopbar {setLanguageCookie} />
 			<MainLayout>
 				{@render children()}
 			</MainLayout>
+			<Footer />
 		</div>
-		<Footer />
 	</SupabaseLayout>
 {/if}
 
