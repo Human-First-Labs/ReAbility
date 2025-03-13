@@ -11,7 +11,7 @@
 	const { children, onClick }: Props = $props();
 </script>
 
-<button onclick={onClick}>{@render children()}</button>
+<button class="hfl-button" onclick={onClick}>{@render children()}</button>
 
 <style>
 	button {

@@ -13,7 +13,7 @@
 		<div class="row space-between" in:slide={{ duration: 500 }} out:slide={{ duration: 500 }}>
 			{#if page.url.pathname === '/research/wheelchairs'}
 				<a
-					class="back-icon small-icon"
+					class="back-icon small-icon hfl-a"
 					in:fade={{ duration: 500 }}
 					out:fade={{ duration: 500 }}
 					href="/research"
@@ -25,7 +25,7 @@
 					<Arrow />
 				</div>
 			{/if}
-			<a href="/research/wheelchairs" class="menu-link">
+			<a href="/research/wheelchairs" class="menu-link hfl-a">
 				<h5 class="menu-item">{getContent('wheelchairs-title')}</h5>
 			</a>
 		</div>
@@ -34,7 +34,7 @@
 		<div class="row space-between" in:slide={{ duration: 500 }} out:slide={{ duration: 500 }}>
 			{#if page.url.pathname === '/research/wav'}
 				<a
-					class="back-icon small-icon"
+					class="back-icon small-icon hfl-a"
 					in:fade={{ duration: 500 }}
 					out:fade={{ duration: 500 }}
 					href="/research"
@@ -46,7 +46,7 @@
 					<Arrow />
 				</div>
 			{/if}
-			<a href="/research/wav" class="menu-link">
+			<a href="/research/wav" class="menu-link hfl-a">
 				<h5 class="menu-item">{getContent('wav-title')}</h5>
 			</a>
 		</div>
@@ -58,11 +58,6 @@
 	.menu-link {
 		width: fit-content;
 	}
-
-	.hidden {
-		visibility: hidden;
-	}
-
 	.space-between {
 		display: flex;
 		justify-content: space-between;

@@ -6,7 +6,7 @@
 	import { swipe } from 'svelte-gestures';
 	import { goto } from '$app/navigation';
 	import type { LayoutProps } from '../routes/$types';
-	import { fade } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
 
 	let pageState = $derived.by<{
 		word: string;
@@ -95,7 +95,17 @@
 		: undefined}
 >
 	<div class="text-center">
-		<div class={['relative', pageState.main ? 'minimum-height' : undefined]}>
+		<div
+			class={['relative', pageState.main ? 'minimum-height' : undefined]}
+			in:fly={{
+				duration: 500,
+				x: 50
+			}}
+			out:fly={{
+				duration: 500,
+				x: -50
+			}}
+		>
 			{#each navigationOrder.filter((order) => order) as title}
 				{#if title.split('/')[1] === currentNavSection}
 					<div in:flyIn={direction} out:flyOut={direction} class="full-width">
@@ -104,11 +114,27 @@
 				{/if}
 			{/each}
 		</div>
-		<hr class="divider" />
-		<div class="row first-row">
+		<hr class="hfl-hr" />
+		<div
+			class="row first-row"
+			in:fly={{
+				duration: 500,
+				x: -50
+			}}
+			out:fly={{
+				duration: 500,
+				x: 50
+			}}
+		>
 			<div class="row center">
 				<a
-					class={['big-icon', 'back-icon', 'before', !pageState.main ? 'before-hidden' : undefined]}
+					class={[
+						'hfl-a',
+						'big-icon',
+						'back-icon',
+						'before',
+						!pageState.main ? 'before-hidden' : undefined
+					]}
 					href={`${previous}`}
 					onclick={() => (direction = 'left')}
 				>
@@ -128,7 +154,7 @@
 
 			{#if pageState.main}
 				<a
-					class="big-icon"
+					class="big-icon hfl-a"
 					href={`${next}`}
 					in:fade={{
 						duration: 500
@@ -142,13 +168,21 @@
 				</a>
 			{/if}
 		</div>
-		<div class="row center">
-			<div class="hidden big-icon">
+		<div
+			class="row center"
+			in:fly={{
+				duration: 500,
+				x: -50
+			}}
+			out:fly={{
+				duration: 500,
+				x: 50
+			}}
+		>
+			<div class="hidden-arrow big-icon">
 				<Arrow />
 			</div>
 			<h1
-				in:flyIn={direction}
-				out:flyOut={direction}
 				class={[
 					'big-text'
 					// 'outlined-text'
@@ -191,6 +225,7 @@
 		margin: 0;
 		font-size: 10vw;
 		font-weight: 800;
+		line-height: 1;
 	}
 
 	.full-width {
@@ -218,12 +253,6 @@
 		display: none;
 	}
 
-	.divider {
-		width: 100%;
-		border: 0.2px solid var(--text-color);
-		margin: 15px 0 15px 0;
-	}
-
 	.first-row {
 		justify-content: space-between;
 		align-items: center;
@@ -245,7 +274,7 @@
 		pointer-events: none;
 	}
 
-	.hidden {
+	.hidden-arrow {
 		visibility: hidden;
 		margin-right: 10px;
 	}

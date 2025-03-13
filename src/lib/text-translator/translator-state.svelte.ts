@@ -1,28 +1,28 @@
 import type { Content, ContentName, ContentSentence, Language } from './types';
 import content from '../content/text-content.json';
 
-let currentLangauge = $state<Language>();
+let currentLanguage = $state<Language>();
 
 export const setInitialLanguage = (language?: Language) => {
-	currentLangauge = language || 'en';
+	currentLanguage = language || 'en';
 };
 
 export const toggleCurrentLanguage = () => {
-	if (currentLangauge === 'en') {
-		currentLangauge = 'mt';
+	if (currentLanguage === 'en') {
+		currentLanguage = 'mt';
 	} else {
-		currentLangauge = 'en';
+		currentLanguage = 'en';
 	}
 
-	return currentLangauge;
+	return currentLanguage;
 };
 
 export const getCurrentLanguage = () => {
-	return currentLangauge;
+	return currentLanguage;
 };
 
 export const chooseLanguage = (parsedContent: ContentSentence) => {
-	return parsedContent[currentLangauge || 'en'];
+	return parsedContent[currentLanguage || 'en'];
 };
 
 export const getContent = (key: ContentName) => {

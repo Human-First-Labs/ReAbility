@@ -13,7 +13,7 @@
 		<div class="row space-between" in:slide={{ duration: 500 }} out:slide={{ duration: 500 }}>
 			{#if page.url.pathname === '/reach-out/buy-merch'}
 				<a
-					class="back-icon small-icon"
+					class="back-icon small-icon hfl-a"
 					in:fade={{ duration: 500 }}
 					out:fade={{ duration: 500 }}
 					href="/reach-out"
@@ -25,7 +25,7 @@
 					<Arrow />
 				</div>
 			{/if}
-			<a href="/reach-out/buy-merch" class="menu-link">
+			<a href="/reach-out/buy-merch" class="menu-link hfl-a">
 				<h5 class="menu-item">{getContent('merch-title')}</h5>
 			</a>
 		</div>
@@ -34,7 +34,7 @@
 		<div class="row space-between" in:slide={{ duration: 500 }} out:slide={{ duration: 500 }}>
 			{#if page.url.pathname === '/reach-out/contact-us'}
 				<a
-					class="back-icon small-icon"
+					class="back-icon small-icon hfl-a"
 					in:fade={{ duration: 500 }}
 					out:fade={{ duration: 500 }}
 					href="/reach-out"
@@ -46,7 +46,7 @@
 					<Arrow />
 				</div>
 			{/if}
-			<a href="/reach-out/contact-us" class="menu-link">
+			<a href="/reach-out/contact-us" class="menu-link hfl-a">
 				<h5 class="menu-item">{getContent('contact-title')}</h5>
 			</a>
 		</div>
@@ -55,7 +55,7 @@
 		<div class="row space-between" in:slide={{ duration: 500 }} out:slide={{ duration: 500 }}>
 			{#if page.url.pathname === '/reach-out/share-what-we-do'}
 				<a
-					class="back-icon small-icon"
+					class="back-icon small-icon hfl-a"
 					in:fade={{ duration: 500 }}
 					out:fade={{ duration: 500 }}
 					href="/reach-out"
@@ -67,7 +67,7 @@
 					<Arrow />
 				</div>
 			{/if}
-			<a href="/reach-out/share-what-we-do" class="menu-link">
+			<a href="/reach-out/share-what-we-do" class="menu-link hfl-a">
 				<h5 class="menu-item">{getContent('share-with-us-title')}</h5>
 			</a>
 		</div>
@@ -79,11 +79,6 @@
 	.menu-link {
 		width: fit-content;
 	}
-
-	.hidden {
-		visibility: hidden;
-	}
-
 	.space-between {
 		display: flex;
 		justify-content: space-between;

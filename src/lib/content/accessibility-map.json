@@ -1,6 +1,6 @@
 [
 	{
-		"id": 1,
+		"id": "1",
 		"name": {
 			"en": "Ta' Qali Park",
 			"mt": "Il-Park ta' Ta' Qali"
@@ -11,6 +11,7 @@
 		},
 		"latitude": 35.8956,
 		"longitude": 14.4422,
+		"googleMapsLink": "https://goo.gl/maps/7ZQ7Q5Q7Q7Q7",
 		"accessibility-information": {
 			"overall-rating-1-5": 4,
 			"text": {
@@ -41,7 +42,7 @@
 		}
 	},
 	{
-		"id": 2,
+		"id": "2",
 		"name": {
 			"en": "Valletta",
 			"mt": "Il-Belt Valletta"
@@ -52,6 +53,7 @@
 		},
 		"latitude": 35.8989,
 		"longitude": 14.5146,
+		"googleMapsLink": "https://goo.gl/maps/7ZQ7Q5Q7Q7Q7",
 		"accessibility-information": {
 			"overall-rating-1-5": 3,
 			"text": {

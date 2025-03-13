@@ -18,25 +18,32 @@
 	{:else}
 		<form method="POST" action="?/sendEmail">
 			<div class="form-div column">
-				<input type="text" placeholder="Name" name="name" required />
+				<input class="hfl-field" type="text" placeholder="Name" name="name" required />
 				{#if form?.missing?.includes('name')}
 					<p class="error">Name is required</p>
 				{/if}
-				<input type="email" placeholder="Email Address" name="emailAddress" required />
+				<input
+					class="hfl-field"
+					type="email"
+					placeholder="Email Address"
+					name="emailAddress"
+					required
+				/>
 				{#if form?.missing?.includes('emailAddress')}
 					<p class="error">Email Address is required</p>
 				{/if}
-				<input type="text" placeholder="Subject" name="subject" required />
+				<input class="hfl-field" type="text" placeholder="Subject" name="subject" required />
 				{#if form?.missing?.includes('subject')}
 					<p class="error">Subject is required</p>
 				{/if}
-				<textarea placeholder="Message" name="message" rows={10} required></textarea>
+				<textarea class="hfl-field" placeholder="Message" name="message" rows={10} required
+				></textarea>
 				{#if form?.missing?.includes('message')}
 					<p class="error">Message is required</p>
 				{/if}
 				<div class="row action-row">
-					<button type="reset"> Clear </button>
-					<button type="submit"> Send </button>
+					<button type="reset" class="hfl-button normal-button"> Clear </button>
+					<button type="submit" class="hfl-button normal-button"> Send </button>
 				</div>
 				{#if form?.fullError}
 					<p class="error">{form.message}</p>
@@ -73,12 +80,5 @@
 		color: green;
 		font-size: 1.2rem;
 		text-align: center;
-	}
-
-	button {
-		background-color: var(--text-color);
-		color: var(--primary-color);
-		padding: 10px 20px;
-		width: 100%;
 	}
 </style>

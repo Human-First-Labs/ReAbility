@@ -7,6 +7,11 @@
 	import MainLayout from '$lib/MainLayout.svelte';
 	import SimpleTopbar from '$lib/SimpleTopbar.svelte';
 	import type { Language } from '$lib/text-translator/types';
+	import {
+		getCurrentLanguage,
+		setInitialLanguage
+	} from '$lib/text-translator/translator-state.svelte';
+	import { onMount } from 'svelte';
 
 	const appName = 'Reability';
 
@@ -15,9 +20,17 @@
 	const { supabaseData, savedLanguage } = $derived(data);
 	const { session, supabase } = $derived(supabaseData);
 
+	let currentLanguage = $derived.by(getCurrentLanguage);
+
+	onMount(() => {
+		if (!currentLanguage) {
+			setInitialLanguage(savedLanguage);
+		}
+	});
+
 	const setLanguageCookie = async (lang: Language) => {
 		try {
-			await fetch('?/setLanguageCookie', {
+			await fetch('../?/setLanguageCookie', {
 				method: 'POST',
 				body: JSON.stringify({ lang })
 			});
@@ -32,15 +45,19 @@
 	<meta name="description" content="through Adaptability" />
 </svelte:head>
 
-<SupabaseLayout {session} {supabase}>
-	<div class="fullscreen">
-		<SimpleTopbar {setLanguageCookie} loadedLanguage={savedLanguage} />
-		<MainLayout>
-			{@render children()}
-		</MainLayout>
-		<Footer />
-	</div>
-</SupabaseLayout>
+{#if !currentLanguage}
+	<p>Loading...</p>
+{:else}
+	<SupabaseLayout {session} {supabase}>
+		<div class="fullscreen">
+			<SimpleTopbar {setLanguageCookie} />
+			<MainLayout>
+				{@render children()}
+			</MainLayout>
+			<Footer />
+		</div>
+	</SupabaseLayout>
+{/if}
 
 <style>
 	.fullscreen {

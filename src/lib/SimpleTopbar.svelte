@@ -5,11 +5,9 @@
 	import type { Language } from './text-translator/types';
 
 	let {
-		setLanguageCookie,
-		loadedLanguage
+		setLanguageCookie
 	}: {
 		setLanguageCookie: (lang: Language) => void;
-		loadedLanguage?: Language;
 	} = $props();
 
 	let ready = $state(false);
@@ -23,7 +21,7 @@
 			axis: 'y'
 		}}
 	>
-		<LanguageToggle {setLanguageCookie} {loadedLanguage} />
+		<LanguageToggle {setLanguageCookie} />
 	</header>
 {/if}
 

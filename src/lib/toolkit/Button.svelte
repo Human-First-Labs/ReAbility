@@ -49,6 +49,7 @@
 	<button
 		type={onClick.type}
 		class={[
+			'hfl-button',
 			`${variant}`,
 			`${size}`,
 			{
@@ -66,7 +67,7 @@
 {/snippet}
 
 {#if onClick.href}
-	<a href={onClick.href}>
+	<a class="hfl-a" href={onClick.href}>
 		{@render button()}
 	</a>
 {:else}

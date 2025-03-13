@@ -10,9 +10,9 @@
 	--topbar-mobile-height: 60px;
 }
 
-/* * {
-	line-height: 1;
-} */
+* {
+	scroll-behavior: smooth;
+}
 
 .outlined-text {
 	color: transparent;
@@ -48,6 +48,17 @@
 	height: fit-content;
 }
 
+.normal-button {
+	background-color: var(--text-color);
+	color: var(--primary-color);
+	padding: 10px 20px;
+	width: 100%;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
 @media screen and (min-width: 1000px) {
 	.menu-item {
 		font-size: 2em;
@@ -60,4 +71,32 @@
 	.small-icon {
 		font-size: 3em;
 	}
+}
+
+/* Mapbox css */
+
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
+	border-bottom-color: var(--primary-color);
+}
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
+	border-top-color: var(--primary-color);
+}
+.mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+	border-right-color: var(--primary-color);
+}
+.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+	border-left-color: var(--primary-color);
+}
+
+.mapboxgl-popup-content {
+	background-color: var(--primary-color);
+	color: var(--var-color-text);
+}
+
+a.mapboxgl-ctrl-logo.mapboxgl-compact {
+	width: 88px !important;
 }

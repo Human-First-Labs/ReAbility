@@ -1,27 +1,14 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import {
-		getCurrentLanguage,
-		setInitialLanguage,
-		toggleCurrentLanguage
-	} from './translator-state.svelte';
+	import { getCurrentLanguage, toggleCurrentLanguage } from './translator-state.svelte';
 	import type { Language } from './types';
 
 	let {
-		setLanguageCookie,
-		loadedLanguage
+		setLanguageCookie
 	}: {
 		setLanguageCookie: (lang: Language) => void;
-		loadedLanguage?: Language;
 	} = $props();
 
-	let currentLangauge = $derived.by(getCurrentLanguage);
-
-	onMount(() => {
-		if (!currentLangauge) {
-			setInitialLanguage(loadedLanguage);
-		}
-	});
+	let currentLanguage = $derived.by(getCurrentLanguage);
 </script>
 
 <button
@@ -29,10 +16,10 @@
 		const current = toggleCurrentLanguage();
 		setLanguageCookie(current);
 	}}
-	class="hidden-button"
+	class="hidden-button hfl-button"
 >
-	<span class={currentLangauge === 'mt' ? 'selected-lang' : undefined}>MT</span>
-	<span class={currentLangauge === 'en' ? 'selected-lang' : undefined}>EN</span>
+	<span class={currentLanguage === 'mt' ? 'selected-lang' : undefined}>MT</span>
+	<span class={currentLanguage === 'en' ? 'selected-lang' : undefined}>EN</span>
 </button>
 
 <style>

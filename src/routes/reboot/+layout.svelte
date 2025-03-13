@@ -13,7 +13,7 @@
 		<div class="row space-between" in:slide={{ duration: 500 }} out:slide={{ duration: 500 }}>
 			{#if page.url.pathname === '/reboot/physical-changes'}
 				<a
-					class="back-icon small-icon"
+					class="back-icon small-icon hfl-a"
 					in:fade={{ duration: 500 }}
 					out:fade={{ duration: 500 }}
 					href="/reboot"
@@ -25,7 +25,7 @@
 					<Arrow />
 				</div>
 			{/if}
-			<a href="/reboot/physical-changes" class="menu-link">
+			<a href="/reboot/physical-changes" class="menu-link hfl-a">
 				<h5 class="menu-item">{getContent('physical-changes-title')}</h5>
 			</a>
 		</div>
@@ -34,7 +34,7 @@
 		<div class="row space-between" in:slide={{ duration: 500 }} out:slide={{ duration: 500 }}>
 			{#if page.url.pathname === '/reboot/adaptations'}
 				<a
-					class="back-icon small-icon"
+					class="back-icon small-icon hfl-a"
 					in:fade={{ duration: 500 }}
 					out:fade={{ duration: 500 }}
 					href="/reboot"
@@ -46,7 +46,7 @@
 					<Arrow />
 				</div>
 			{/if}
-			<a href="/reboot/adaptations" class="menu-link">
+			<a href="/reboot/adaptations" class="menu-link hfl-a">
 				<h5 class="menu-item">{getContent('adaptations-title')}</h5>
 			</a>
 		</div>
@@ -57,10 +57,6 @@
 <style>
 	.menu-link {
 		width: fit-content;
-	}
-
-	.hidden {
-		visibility: hidden;
 	}
 
 	.space-between {

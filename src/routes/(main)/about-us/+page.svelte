@@ -18,8 +18,9 @@
 	<p>
 		Not all life changing injury is equal, and not all people are affected in the same way.
 		Currently ReAbility.mt is focused on SCI (Spinal Chord Injury), but if you have a different type
-		of injury and would like to share your story, please <a href="/reach-out/contact-us"
-			>get in touch</a
+		of injury and would like to share your story, please <a
+			class="hfl-a"
+			href="/reach-out/contact-us">get in touch</a
 		>.
 	</p>
 </div>
