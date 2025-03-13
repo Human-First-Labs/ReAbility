@@ -35,5 +35,6 @@
 		align-items: center;
 		justify-content: flex-end;
 		padding: 1rem;
+		z-index: 5;
 	}
 </style>
