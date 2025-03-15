@@ -32,6 +32,7 @@
 		position: absolute;
 		bottom: 0;
 		display: flex;
+		height: var(--topbar-mobile-height);
 		background-color: var(--primary-color);
 		width: 100%;
 		align-items: center;

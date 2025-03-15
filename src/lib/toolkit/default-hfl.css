@@ -19,7 +19,7 @@ body {
 	height: 100%;
 }
 
-div {
+.container {
 	display: flex;
 }
 
@@ -48,9 +48,9 @@ div {
 }
 
 * {
+	box-sizing: border-box;
 	font-family: var(--general-font);
 	color: var(--text-color);
-	box-sizing: border-box;
 }
 
 .hfl-a {

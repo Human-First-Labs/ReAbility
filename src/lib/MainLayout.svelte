@@ -7,6 +7,8 @@
 	import { goto } from '$app/navigation';
 	import type { LayoutProps } from '../routes/$types';
 	import { fade, fly } from 'svelte/transition';
+	import { Accessibility } from 'accessibility';
+	import { onMount } from 'svelte';
 
 	let pageState = $derived.by<{
 		word: string;
@@ -74,6 +76,10 @@
 		} else {
 			return '';
 		}
+	});
+
+	onMount(() => {
+		new Accessibility();
 	});
 
 	let { children }: Omit<LayoutProps, 'data'> = $props();
@@ -203,9 +209,11 @@
 		padding: var(--topbar-mobile-height) 0;
 		width: 100%;
 		height: 100%;
+		display: flex;
 	}
 
 	.relative {
+		display: flex;
 		position: relative;
 		width: 100%;
 		align-items: end;
@@ -217,6 +225,7 @@
 	}
 
 	.relative-2 {
+		display: flex;
 		width: 100%;
 		align-items: center;
 	}
@@ -239,6 +248,7 @@
 		overflow-y: auto;
 		overflow-x: hidden;
 		padding: 5px 10%;
+		display: flex;
 		/* background-color: red; */
 	}
 
@@ -255,11 +265,13 @@
 	}
 
 	.first-row {
+		display: flex;
 		justify-content: space-between;
 		align-items: center;
 	}
 
 	.center {
+		display: flex;
 		align-items: center;
 		width: 100%;
 	}
