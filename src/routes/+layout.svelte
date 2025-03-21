@@ -47,19 +47,10 @@
 
 {#if currentLanguage}
 	<SupabaseLayout {session} {supabase}>
-		<!-- <div class="fullscreen"> -->
 		<SimpleTopbar {setLanguageCookie} />
 		<MainLayout>
 			{@render children()}
 		</MainLayout>
 		<Footer />
-		<!-- </div> -->
 	</SupabaseLayout>
 {/if}
-
-<style>
-	/* .fullscreen {
-		height: 100dvh;
-		width: 100vw;
-	} */
-</style>

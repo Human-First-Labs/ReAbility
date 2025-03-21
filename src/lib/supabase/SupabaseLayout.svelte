@@ -4,7 +4,7 @@
 	import { Turnstile } from 'svelte-turnstile';
 
 	import Cover from '$lib/toolkit/Cover.svelte';
-	import type { Session, SupabaseClient, User } from '@supabase/supabase-js';
+	import type { Session, SupabaseClient } from '@supabase/supabase-js';
 
 	let {
 		session,
@@ -83,19 +83,6 @@
 {@render children()}
 
 <style>
-	.popup {
-		display: flex;
-		background-color: var(--primary-color);
-		align-items: center;
-		flex-direction: column;
-		border-radius: 16px;
-		max-width: 60%;
-		padding: 20px;
-		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-		text-align: center;
-		gap: 20px;
-	}
-
 	h2,
 	h4,
 	small {

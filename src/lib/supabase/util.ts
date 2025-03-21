@@ -62,7 +62,7 @@ export const layoutLoad = async (args: DataArguments) => {
 	return { session, supabase, user };
 };
 
-export const generateSupbaseHandler = (args: { supabaseUrl: string; supabaseKey: string }) => {
+export const generateSupabaseHandler = (args: { supabaseUrl: string; supabaseKey: string }) => {
 	const { supabaseUrl, supabaseKey } = args;
 
 	const supabaseHandler: Handle = async ({ event, resolve }) => {
