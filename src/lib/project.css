@@ -52,11 +52,8 @@
 	background-color: var(--text-color);
 	color: var(--primary-color);
 	padding: 10px 20px;
-	width: 100%;
-}
-
-.hidden {
-	visibility: hidden;
+	flex: 1;
+	justify-content: center;
 }
 
 @media screen and (min-width: 1000px) {

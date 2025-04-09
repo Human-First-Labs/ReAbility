@@ -1,3 +1,15 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+small {
+	margin: 0;
+	padding: 0;
+}
+
 :root {
 	--general-font: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	--primary-color: #4a90e2;

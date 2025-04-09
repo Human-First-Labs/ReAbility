@@ -174,7 +174,11 @@
 		very detailed accessibility information, so that you can know what to expect before you go.
 	</p>
 	<div id="map-view" class="map-container">
-		<div class={['map', !mapLoaded ? 'hidden' : '']} bind:this={mapContainer}></div>
+		<div
+			style={!mapLoaded ? 'visibility: hidden' : undefined}
+			class="map"
+			bind:this={mapContainer}
+		></div>
 	</div>
 	<div class="column list">
 		{#each mapPoints as point}
@@ -246,6 +250,8 @@
 <style>
 	.fullscreen {
 		width: 100%;
+		gap: 10px;
+		padding: 10px 0;
 	}
 
 	.map-container {

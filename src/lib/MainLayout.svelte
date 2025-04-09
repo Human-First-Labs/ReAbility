@@ -132,7 +132,7 @@
 				x: 50
 			}}
 		>
-			<div class="row center">
+			<div class="row center" style="width: fit-content">
 				<a
 					class={[
 						'hfl-a',
@@ -161,6 +161,7 @@
 			{#if pageState.main}
 				<a
 					class="big-icon hfl-a"
+					style="width: fit-content"
 					href={`${next}`}
 					in:fade={{
 						duration: 500
@@ -228,6 +229,7 @@
 		display: flex;
 		width: 100%;
 		align-items: center;
+		width: fit-content;
 	}
 
 	.big-text {
@@ -268,18 +270,19 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		width: 100%;
 	}
 
 	.center {
 		display: flex;
 		align-items: center;
-		width: 100%;
 	}
 
 	.before {
 		margin-right: 10px;
 		transition: opacity 0.5s;
 		opacity: 1;
+		width: fit-content;
 	}
 
 	.before-hidden {

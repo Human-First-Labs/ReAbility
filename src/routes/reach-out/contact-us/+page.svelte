@@ -61,6 +61,8 @@
 
 	.fullscreen {
 		width: 100%;
+		gap: 10px;
+		padding: 10px 0;
 	}
 
 	.form-div {

@@ -21,7 +21,7 @@
 					<Arrow />
 				</a>
 			{:else}
-				<div class="hidden back-icon">
+				<div class="back-icon" style="visibility: hidden">
 					<Arrow />
 				</div>
 			{/if}
@@ -42,7 +42,7 @@
 					<Arrow />
 				</a>
 			{:else}
-				<div class="hidden back-icon">
+				<div class="back-icon" style="visibility: hidden">
 					<Arrow />
 				</div>
 			{/if}

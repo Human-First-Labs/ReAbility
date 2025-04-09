@@ -53,11 +53,14 @@
 
 	.fullscreen {
 		width: 100%;
+		gap: 10px;
+		padding: 10px 0;
 	}
 
 	.half-width {
-		width: 50%;
+		flex: 1;
 		justify-content: space-between;
+		gap: 10px;
 	}
 
 	button {

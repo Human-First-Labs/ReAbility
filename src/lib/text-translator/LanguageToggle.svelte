@@ -17,8 +17,9 @@
 		setLanguageCookie(current);
 	}}
 	class="hidden-button hfl-button"
+	style="gap: 2px"
 >
-	<span class={currentLanguage === 'mt' ? 'selected-lang' : undefined}>MT</span>
+	<span class={currentLanguage === 'mt' ? 'selected-lang' : undefined}>MT</span>|
 	<span class={currentLanguage === 'en' ? 'selected-lang' : undefined}>EN</span>
 </button>
 
