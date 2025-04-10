@@ -3,34 +3,9 @@
 	import { onMount, onDestroy } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import mapPoints from '$lib/content/accessibility-map.json';
-	import type { ContentSentence } from '$lib/text-translator/types';
 	import { chooseLanguage } from '$lib/text-translator/translator-state.svelte';
-
-	interface MapPoint {
-		id: string;
-		name: ContentSentence;
-		description: ContentSentence;
-		latitude: number;
-		longitude: number;
-		googleMapsLink: string;
-		'accessibility-information': {
-			'overall-rating-1-5': number;
-			text: ContentSentence;
-			'specific-issues': {
-				name: ContentSentence;
-				description: ContentSentence;
-				image: string;
-			}[];
-			'accessibility-features-1-5': {
-				parking: number;
-				toilets: number;
-				paths: number;
-				seating: number;
-				shelter: number;
-				assistance: number;
-			};
-		};
-	}
+	import { goto } from '$app/navigation';
+	import type { MapItem } from '$lib/content/util';
 
 	const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
 
@@ -71,7 +46,7 @@
 						type: 'geojson',
 						data: {
 							type: 'FeatureCollection',
-							features: mapPoints.map((point: MapPoint) => {
+							features: mapPoints.map((point: MapItem) => {
 								return {
 									type: 'Feature',
 									geometry: {
@@ -79,6 +54,7 @@
 										coordinates: [point.longitude, point.latitude]
 									},
 									properties: {
+										id: point.id,
 										title: chooseLanguage(point.name)
 									}
 								};
@@ -127,9 +103,19 @@
 						// Populate the popup and set its coordinates
 						// based on the feature found.
 						popup.setLngLat(coordinates).setHTML(title).addTo(map);
+					};
 
-						//TODO scroll to target on click
-						popup.on('click', () => {});
+					const navigateToTarget = async (e: mapboxgl.MapMouseEvent | mapboxgl.MapTouchEvent) => {
+						if (!e.features) {
+							return;
+						}
+
+						const id = e.features[0].properties?.id;
+
+						// expandedPoint = '';
+						// quickExpandedPoint = id;
+						expandedPoint = id;
+						await goto('/resources/accessibility-map#' + id + '-row');
 					};
 
 					map.on('mouseenter', 'places', onMouseEnter);
@@ -140,6 +126,9 @@
 					});
 
 					map.on('touchstart', 'places', onMouseEnter);
+
+					map.on('click', 'places', navigateToTarget);
+					map.on('touched', 'places', navigateToTarget);
 				}
 			);
 
@@ -159,7 +148,35 @@
 	});
 
 	let expandedPoint = $state<string>('');
+	// let quickExpandedPoint = $state<string>('');
 </script>
+
+{#snippet rowInside(props: { point: MapItem })}
+	<div class="row">
+		<div class="half-width column"></div>
+		<div class="half-width column">
+			<p>{chooseLanguage(props.point.description)}</p>
+		</div>
+	</div>
+
+	<p>{chooseLanguage(props.point['accessibility-information'].text)}</p>
+	<div class="row">
+		{#each props.point['accessibility-information']['specific-issues'] as issue}
+			<div class="card">
+				<h4>{chooseLanguage(issue.name)}</h4>
+				<p>{chooseLanguage(issue.description)}</p>
+				<img src={issue.image} alt={chooseLanguage(issue.name)} />
+			</div>
+		{/each}
+	</div>
+
+	{#each Object.entries(props.point['accessibility-information']['accessibility-features-1-5']) as [key, value]}
+		<div class="card">
+			<h4>{key}</h4>
+			<p>{value}</p>
+		</div>
+	{/each}
+{/snippet}
 
 <div in:slide={{ duration: 500 }} out:slide={{ duration: 500 }} class="fullscreen column">
 	<p>
@@ -183,7 +200,7 @@
 	<div class="column list">
 		{#each mapPoints as point}
 			<div class="column">
-				<div class="row location-row">
+				<div id="{point.id}-row" class="row location-row">
 					<div class="column">
 						<h3 class="no-margin">{chooseLanguage(point.name)}</h3>
 						<p class="no-margin">
@@ -203,39 +220,33 @@
 						</a>
 						<button
 							class="normal-button hfl-button"
-							onclick={() => (expandedPoint = expandedPoint === point.id ? '' : point.id)}
+							onclick={() => {
+								// if (quickExpandedPoint === point.id) {
+								// 	quickExpandedPoint = '';
+								// } else {
+								// 	expandedPoint = expandedPoint === point.id ? '' : point.id;
+								// }
+
+								expandedPoint = expandedPoint === point.id ? '' : point.id;
+							}}
 						>
+							<!-- {expandedPoint === point.id || quickExpandedPoint === point.id -->
 							{expandedPoint === point.id ? 'Show Less' : 'Show More'}
 						</button>
 					</div>
 				</div>
 				{#if expandedPoint === point.id}
 					<div class="column" in:slide={{ duration: 500 }} out:slide={{ duration: 500 }}>
-						<div class="row">
-							<div class="half-width column"></div>
-							<div class="half-width column">
-								<p>{chooseLanguage(point.description)}</p>
-							</div>
-						</div>
-
-						<p>{chooseLanguage(point['accessibility-information'].text)}</p>
-						<div class="row">
-							{#each point['accessibility-information']['specific-issues'] as issue}
-								<div class="card">
-									<h4>{chooseLanguage(issue.name)}</h4>
-									<p>{chooseLanguage(issue.description)}</p>
-									<img src={issue.image} alt={chooseLanguage(issue.name)} />
-								</div>
-							{/each}
-						</div>
-
-						{#each Object.entries(point['accessibility-information']['accessibility-features-1-5']) as [key, value]}
-							<div class="card">
-								<h4>{key}</h4>
-								<p>{value}</p>
-							</div>
-						{/each}
+						{@render rowInside({
+							point
+						})}
 					</div>
+					<!-- {:else if quickExpandedPoint === point.id}
+					<div class="column">
+						{@render rowInside({
+							point
+						})}
+					</div> -->
 				{/if}
 			</div>
 			<hr class="hfl-hr" />
