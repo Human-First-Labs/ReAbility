@@ -16,7 +16,7 @@
 		const current = toggleCurrentLanguage();
 		setLanguageCookie(current);
 	}}
-	class="hidden-button hfl-button"
+	class="hidden-button basic-button"
 	style="gap: 2px"
 >
 	<span class={currentLanguage === 'mt' ? 'selected-lang' : undefined}>MT</span>|
@@ -24,6 +24,10 @@
 </button>
 
 <style>
+	.basic-button {
+		color: var(--text-color);
+	}
+
 	.selected-lang {
 		text-decoration: underline;
 	}

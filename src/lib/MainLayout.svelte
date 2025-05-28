@@ -120,7 +120,7 @@
 				{/if}
 			{/each}
 		</div>
-		<hr class="hfl-hr" />
+		<hr class="basic-hr" />
 		<div
 			class="row first-row"
 			in:fly={{
@@ -135,7 +135,7 @@
 			<div class="row center" style="width: fit-content">
 				<a
 					class={[
-						'hfl-a',
+						'basic-a',
 						'big-icon',
 						'back-icon',
 						'before',
@@ -160,7 +160,7 @@
 
 			{#if pageState.main}
 				<a
-					class="big-icon hfl-a"
+					class="big-icon basic-a"
 					style="width: fit-content"
 					href={`${next}`}
 					in:fade={{
@@ -211,6 +211,7 @@
 		width: 100%;
 		height: 100%;
 		display: flex;
+		min-height: 100vh;
 	}
 
 	.relative {
@@ -249,7 +250,7 @@
 		max-height: 100%;
 		overflow-y: auto;
 		overflow-x: hidden;
-		padding: 5px 10%;
+		padding: 15px 10%;
 		display: flex;
 		/* background-color: red; */
 	}

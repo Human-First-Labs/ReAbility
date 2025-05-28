@@ -13,7 +13,7 @@
 		<div class="row space-between" in:slide={{ duration: 500 }} out:slide={{ duration: 500 }}>
 			{#if page.url.pathname === '/about-us'}
 				<a
-					class="back-icon small-icon hfl-a"
+					class="back-icon small-icon basic-a"
 					in:fade={{ duration: 500 }}
 					out:fade={{ duration: 500 }}
 					href="/"
@@ -25,7 +25,7 @@
 					<Arrow />
 				</div>
 			{/if}
-			<a href="/about-us" class="menu-link hfl-a">
+			<a href="/about-us" class="menu-link basic-a">
 				<h5 class="menu-item">{getContent('about-us-title')}</h5>
 			</a>
 		</div>
@@ -34,7 +34,7 @@
 		<div class="row space-between" in:slide={{ duration: 500 }} out:slide={{ duration: 500 }}>
 			{#if page.url.pathname === '/credits'}
 				<a
-					class="back-icon small-icon hfl-a"
+					class="back-icon small-icon basic-a"
 					in:fade={{ duration: 500 }}
 					out:fade={{ duration: 500 }}
 					href="/"
@@ -46,7 +46,7 @@
 					<Arrow />
 				</div>
 			{/if}
-			<a href="/credits" class="menu-link hfl-a">
+			<a href="/credits" class="menu-link basic-a">
 				<h5 class="menu-item">{getContent('credits-title')}</h5>
 			</a>
 		</div>

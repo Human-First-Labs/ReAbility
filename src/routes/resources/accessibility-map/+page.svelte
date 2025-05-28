@@ -208,9 +208,9 @@
 						</p>
 					</div>
 					<div class="row action-row">
-						<a href="#map-view" class="hfl-a">
+						<a href="#map-view" class="basic-a">
 							<button
-								class="normal-button hfl-button"
+								class="normal-button basic-button"
 								onclick={() => {
 									moveMap(point.longitude, point.latitude, 15);
 								}}
@@ -219,7 +219,7 @@
 							</button>
 						</a>
 						<button
-							class="normal-button hfl-button"
+							class="normal-button basic-button"
 							onclick={() => {
 								// if (quickExpandedPoint === point.id) {
 								// 	quickExpandedPoint = '';
@@ -249,12 +249,12 @@
 					</div> -->
 				{/if}
 			</div>
-			<hr class="hfl-hr" />
+			<hr class="basic-hr" />
 		{/each}
 	</div>
 	<p>
 		Think we ought to add a place you like? Or hoping that we'll review a place you're interested
-		in? <a href="/reach-out/contact-us" class="hfl-a">Reach out!</a>
+		in? <a href="/reach-out/contact-us" class="basic-a">Reach out!</a>
 	</p>
 </div>
 

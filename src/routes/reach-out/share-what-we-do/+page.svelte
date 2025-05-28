@@ -21,7 +21,7 @@
 		<div class="half-width column">
 			<p>If you want to share this website virtually, click below to copy the link</p>
 			<button
-				class="hidden-button hfl-button"
+				class="hidden-button basic-button"
 				onclick={() => {
 					navigator.clipboard.writeText(page.url.origin);
 					copyBox = true;
@@ -35,7 +35,7 @@
 				If you want to share this website physically, you can try downloading and printing the
 				poster below
 			</p>
-			<a class="hfl-a" href="/reach-out/share-what-we-do" download>Download Poster</a>
+			<a class="basic-a" href="/reach-out/share-what-we-do" download>Download Poster</a>
 		</div>
 	</div>
 	<p>Thank you!</p>
@@ -61,6 +61,10 @@
 		flex: 1;
 		justify-content: space-between;
 		gap: 10px;
+	}
+
+	.basic-a {
+		color: var(--secondary-color);
 	}
 
 	button {

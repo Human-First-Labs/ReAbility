@@ -19,7 +19,7 @@
 		</div>
 		<div class="right-stuff">
 			<small
-				>Built with the aid of <a class="hfl-a" href="https://human-first-labs.com"
+				>Built with the aid of <a class="basic-a" href="https://human-first-labs.com"
 					>Human First Labs (HFL)</a
 				></small
 			>

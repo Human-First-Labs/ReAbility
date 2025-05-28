@@ -13,7 +13,7 @@
 		<div class="row space-between" in:slide={{ duration: 500 }} out:slide={{ duration: 500 }}>
 			{#if page.url.pathname === '/resources/accessibility-map'}
 				<a
-					class="back-icon small-icon hfl-a"
+					class="back-icon small-icon basic-a"
 					in:fade={{ duration: 500 }}
 					out:fade={{ duration: 500 }}
 					href="/resources"
@@ -25,7 +25,7 @@
 					<Arrow />
 				</div>
 			{/if}
-			<a href="/resources/accessibility-map" class="menu-link hfl-a">
+			<a href="/resources/accessibility-map" class="menu-link basic-a">
 				<h5 class="menu-item">{getContent('accessibility-map-title')}</h5>
 			</a>
 		</div>
@@ -34,7 +34,7 @@
 		<div class="row space-between" in:slide={{ duration: 500 }} out:slide={{ duration: 500 }}>
 			{#if page.url.pathname === '/resources/tools'}
 				<a
-					class="back-icon small-icon hfl-a"
+					class="back-icon small-icon basic-a"
 					in:fade={{ duration: 500 }}
 					out:fade={{ duration: 500 }}
 					href="/resources"
@@ -46,7 +46,7 @@
 					<Arrow />
 				</div>
 			{/if}
-			<a href="/resources/tools" class="menu-link hfl-a">
+			<a href="/resources/tools" class="menu-link basic-a">
 				<h5 class="menu-item">{getContent('tools-title')}</h5>
 			</a>
 		</div>

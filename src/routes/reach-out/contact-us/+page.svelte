@@ -18,12 +18,12 @@
 	{:else}
 		<form method="POST" action="?/sendEmail">
 			<div class="form-div column">
-				<input class="hfl-field" type="text" placeholder="Name" name="name" required />
+				<input class="basic-field" type="text" placeholder="Name" name="name" required />
 				{#if form?.missing?.includes('name')}
 					<p class="error">Name is required</p>
 				{/if}
 				<input
-					class="hfl-field"
+					class="basic-field"
 					type="email"
 					placeholder="Email Address"
 					name="emailAddress"
@@ -32,18 +32,18 @@
 				{#if form?.missing?.includes('emailAddress')}
 					<p class="error">Email Address is required</p>
 				{/if}
-				<input class="hfl-field" type="text" placeholder="Subject" name="subject" required />
+				<input class="basic-field" type="text" placeholder="Subject" name="subject" required />
 				{#if form?.missing?.includes('subject')}
 					<p class="error">Subject is required</p>
 				{/if}
-				<textarea class="hfl-field" placeholder="Message" name="message" rows={10} required
+				<textarea class="basic-field" placeholder="Message" name="message" rows={10} required
 				></textarea>
 				{#if form?.missing?.includes('message')}
 					<p class="error">Message is required</p>
 				{/if}
 				<div class="row action-row">
-					<button type="reset" class="hfl-button normal-button"> Clear </button>
-					<button type="submit" class="hfl-button normal-button"> Send </button>
+					<button type="reset" class="basic-button normal-button"> Clear </button>
+					<button type="submit" class="basic-button normal-button"> Send </button>
 				</div>
 				{#if form?.fullError}
 					<p class="error">{form.message}</p>
