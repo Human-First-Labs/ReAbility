@@ -29,7 +29,7 @@
 
 <style>
 	footer {
-		position: absolute;
+		position: fixed;
 		bottom: 0;
 		display: flex;
 		height: var(--topbar-mobile-height);

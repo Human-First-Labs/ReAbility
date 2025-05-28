@@ -2,10 +2,10 @@
 	import mapboxgl from 'mapbox-gl';
 	import { onMount, onDestroy } from 'svelte';
 	import { slide } from 'svelte/transition';
-	import mapPoints from '$lib/content/accessibility-map.json';
 	import { chooseLanguage } from '$lib/text-translator/translator-state.svelte';
 	import { goto } from '$app/navigation';
 	import type { MapItem } from '$lib/content/util';
+	import { mapData } from '$lib/content/accessibility-map';
 
 	const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
 
@@ -46,7 +46,7 @@
 						type: 'geojson',
 						data: {
 							type: 'FeatureCollection',
-							features: mapPoints.map((point: MapItem) => {
+							features: mapData.map((point: MapItem) => {
 								return {
 									type: 'Feature',
 									geometry: {
@@ -198,7 +198,7 @@
 		></div>
 	</div>
 	<div class="column list">
-		{#each mapPoints as point}
+		{#each mapData as point}
 			<div class="column">
 				<div id="{point.id}-row" class="row location-row">
 					<div class="column">
