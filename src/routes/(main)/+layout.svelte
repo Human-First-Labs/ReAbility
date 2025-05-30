@@ -47,9 +47,6 @@
 					<Arrow />
 				</div>
 			{/if}
-			<a href="/who-is" class="menu-link basic-a">
-				<h5 class="menu-item">{getContent('who-is-title')}</h5>
-			</a>
 		</div>
 	{/if}
 	{#if page.url.pathname === '/' || page.url.pathname === '/credits'}

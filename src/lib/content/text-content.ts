@@ -8,10 +8,6 @@ export const textContent: {
 		en: 'What is Reability?',
 		mt: "X'inhi Reability?"
 	},
-	'who-is-title': {
-		en: 'Who is Reability?',
-		mt: 'Min huma Reability?'
-	},
 	'credits-title': {
 		en: 'credits',
 		mt: 'Rikonoxximenti'
@@ -76,6 +72,63 @@ export const textContent: {
 	'what-is-part-6': {
 		en: 'get in touch',
 		mt: 'kellimna'
+	},
+	//Contact Us
+	'contact-part-1': {
+		en: 'Get in touch!',
+		mt: 'Kellimna!'
+	},
+	'contact-part-2': {
+		en: "We're always trying to do better, and there we believe there is no better way to improve than receiving feedback. Please feel free to reach out to us with any questions, comments, or concerns you may have. We will do our best to respond to you as soon as possible.",
+		mt: "Aħna dejjem qed nippruvaw nagħmlu aħjar, u nemmnu li m'hemm l-ebda mod aħjar biex nitjiebu milli nirċievu 'feedback' min għandkom. Jekk għandek xi mistoqsijiet, kummenti jew ħsibijiet, jekk jogħġbok ikkuntattjana. Aħna nagħmlu l-almu tagħna biex nirrisponduk kemm jista' jkun malajr."
+	},
+	'contact-part-3': {
+		en: "We wouldn't mind a pat on the back either!",
+		mt: 'Xi ftit ikorraġiment naprezzawh ukoll!'
+	},
+	'contact-part-4': {
+		en: 'Email Sent! Thanks for reaching out!',
+		mt: 'Ittra mibgħuta! Grazzi li ikkuntattjajna!'
+	},
+	'contact-name': {
+		en: 'Name',
+		mt: 'Isem'
+	},
+	'contact-email': {
+		en: 'Email Address',
+		mt: 'Email'
+	},
+	'contact-message': {
+		en: 'Message',
+		mt: 'Messaġġ'
+	},
+	'contact-subject': {
+		en: 'Subject',
+		mt: 'Suġġett'
+	},
+	'contact-submit': {
+		en: 'Send',
+		mt: 'Ibgħat'
+	},
+	'contact-clear': {
+		en: 'Clear',
+		mt: 'Ħassar'
+	},
+	'contact-required': {
+		en: 'This field is required',
+		mt: 'Jekk jogħġbok daħħal din l-informazzjoni'
+	},
+	//Share us
+	'share-us-part-1': {
+		en: 'Do you like what we do?',
+		mt: 'Tħobb dak li nagħmlu?'
+	},
+	'share-us-part-2': {
+		en: 'Share what we do with your friends and family, and help us reach more people who might need our help or can help us.',
+		mt: "Aqsam dak li nagħmlu ma' ħbieb u familja tiegħek, u għinna nilħqu aktar nies li jistgħu jkunu jeħtieġu l-għajnuna tagħna, jew jistaw jgħinuna."
+	},
+	'share-us-part-3': {
+		en: 'We are committed to never spending any money on advertising, so we can spend any donations we receive on what really matters. Therefore, we rely on people like you to help us spread the word.',
+		mt: 'Aħna impenjati li qatt ma nużaw flus fuq reklamar, sabiex inkun nistgħu nużaw id-donazzjonijiet li nirċievu fuq dak li verament hu importanti. Għalhekk, nidependu minn nies bħalek li tgħinna nxerrdu l-aħbar.'
 	}
-	//Who is Reability?
 };

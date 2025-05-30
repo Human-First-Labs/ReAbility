@@ -1,7 +1,13 @@
 <script lang="ts">
-	import Content from '$lib/toolkit/Content.svelte';
+	import { slide } from 'svelte/transition';
 </script>
 
-<Content>
-	<h1>Medical Procedures</h1>
-</Content>
+<div in:slide={{ duration: 500 }} out:slide={{ duration: 500 }} class="fullscreen column">
+	<p>Coming Soon!</p>
+</div>
+
+<style>
+	.fullscreen {
+		width: 100%;
+	}
+</style>
