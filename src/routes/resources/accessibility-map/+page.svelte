@@ -4,7 +4,7 @@
 	import { slide } from 'svelte/transition';
 	import { chooseLanguage } from '$lib/text-translator/translator-state.svelte';
 	import { goto } from '$app/navigation';
-	import type { MapItem } from '$lib/content/util';
+	import type { MapItem } from '$lib/content/accessibility-map';
 	import { mapData } from '$lib/content/accessibility-map';
 
 	const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
@@ -303,5 +303,9 @@
 
 	.location-row {
 		justify-content: space-between;
+	}
+
+	.basic-a {
+		color: var(--secondary-color);
 	}
 </style>

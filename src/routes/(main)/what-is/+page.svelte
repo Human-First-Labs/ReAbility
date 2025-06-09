@@ -24,4 +24,8 @@
 		gap: 10px;
 		padding: 10px 0;
 	}
+
+	.basic-a {
+		color: var(--secondary-color);
+	}
 </style>

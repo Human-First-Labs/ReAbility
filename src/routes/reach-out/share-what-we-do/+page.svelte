@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { getContent } from '$lib/text-translator/translator-state.svelte';
 	import NotificationBox from '$lib/toolkit/NotificationBox.svelte';
 	import { slide } from 'svelte/transition';
 
@@ -7,16 +8,9 @@
 </script>
 
 <div in:slide={{ duration: 500 }} out:slide={{ duration: 500 }} class="fullscreen column">
-	<p>Do you like what we do?</p>
-	<p>
-		Share what we do with your friends and family, and help us reach more people who might need our
-		help or can help us.
-	</p>
-	<p>
-		We are committed to never spending any money on advertising, so we can spend any donations we
-		receive on what really matters. Therefore, we rely on people like you to help us spread the
-		word.
-	</p>
+	<p>{getContent('share-us-part-1')}</p>
+	<p>{getContent('share-us-part-2')}</p>
+	<p>{getContent('share-us-part-3')}</p>
 	<div class="row gapping">
 		<div class="half-width column">
 			<p>If you want to share this website virtually, click below to copy the link</p>
