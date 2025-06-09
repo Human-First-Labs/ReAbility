@@ -9,7 +9,7 @@
 </script>
 
 <div class="section-layout">
-	{#if page.url.pathname === '/reach-out' || page.url.pathname === '/reach-out/buy-merch'}
+	<!-- {#if page.url.pathname === '/reach-out' || page.url.pathname === '/reach-out/buy-merch'}
 		<div class="row space-between" in:slide={{ duration: 500 }} out:slide={{ duration: 500 }}>
 			{#if page.url.pathname === '/reach-out/buy-merch'}
 				<a
@@ -25,11 +25,11 @@
 					<Arrow />
 				</div>
 			{/if}
-			<!-- <a href="/reach-out/buy-merch" class="menu-link basic-a">
+			<a href="/reach-out/buy-merch" class="menu-link basic-a">
 				<h5 class="menu-item">{getContent('merch-title')}</h5>
-			</a> -->
+			</a> 
 		</div>
-	{/if}
+	{/if}-->
 	{#if page.url.pathname === '/reach-out' || page.url.pathname === '/reach-out/contact-us'}
 		<div class="row space-between" in:slide={{ duration: 500 }} out:slide={{ duration: 500 }}>
 			{#if page.url.pathname === '/reach-out/contact-us'}

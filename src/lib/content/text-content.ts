@@ -8,6 +8,10 @@ export const textContent: {
 		en: 'What is Reability?',
 		mt: "X'inhi Reability?"
 	},
+	'who-is-title': {
+		en: 'Who is Reability?',
+		mt: 'Min huma Reability?'
+	},
 	// 'credits-title': {
 	// 	en: 'credits',
 	// 	mt: 'Rikonoxximenti'

@@ -47,9 +47,12 @@
 					<Arrow />
 				</div>
 			{/if}
+			<a href="/who-is" class="menu-link basic-a">
+				<h5 class="menu-item">{getContent('who-is-title')}</h5>
+			</a>
 		</div>
 	{/if}
-	{#if page.url.pathname === '/' || page.url.pathname === '/credits'}
+	<!-- {#if page.url.pathname === '/' || page.url.pathname === '/credits'}
 		<div class="row space-between" in:slide={{ duration: 500 }} out:slide={{ duration: 500 }}>
 			{#if page.url.pathname === '/credits'}
 				<a
@@ -69,7 +72,7 @@
 				<h5 class="menu-item">{getContent('credits-title')}</h5>
 			</a>
 		</div>
-	{/if}
+	{/if} -->
 	{@render children()}
 </div>
 
