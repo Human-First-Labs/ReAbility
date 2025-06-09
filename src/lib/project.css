@@ -5,7 +5,7 @@
 
 :root {
 	--general-font: 'Evogria', sans-serif;
-	--primary-color: #152b21;
+	--primary-color: rgb(1, 1, 66);
 	--text-color: #cfcdb2;
 	--topbar-mobile-height: 60px;
 }
