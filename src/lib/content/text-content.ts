@@ -8,10 +8,10 @@ export const textContent: {
 		en: 'What is Reability?',
 		mt: "X'inhi Reability?"
 	},
-	'credits-title': {
-		en: 'credits',
-		mt: 'Rikonoxximenti'
-	},
+	// 'credits-title': {
+	// 	en: 'credits',
+	// 	mt: 'Rikonoxximenti'
+	// },
 	'wheelchairs-title': {
 		en: 'Wheelchairs',
 		mt: 'Siġġijiet tar-roti'
@@ -36,10 +36,10 @@ export const textContent: {
 		en: 'Tools',
 		mt: 'Għodda'
 	},
-	'merch-title': {
-		en: 'Buy Merch',
-		mt: 'Ixtri'
-	},
+	// 'merch-title': {
+	// 	en: 'Buy Merch',
+	// 	mt: 'Ixtri'
+	// },
 	'contact-title': {
 		en: 'Contact Us',
 		mt: 'Ikkuntattjana'

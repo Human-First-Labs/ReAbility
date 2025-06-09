@@ -25,9 +25,9 @@
 					<Arrow />
 				</div>
 			{/if}
-			<a href="/reach-out/buy-merch" class="menu-link basic-a">
+			<!-- <a href="/reach-out/buy-merch" class="menu-link basic-a">
 				<h5 class="menu-item">{getContent('merch-title')}</h5>
-			</a>
+			</a> -->
 		</div>
 	{/if}
 	{#if page.url.pathname === '/reach-out' || page.url.pathname === '/reach-out/contact-us'}
