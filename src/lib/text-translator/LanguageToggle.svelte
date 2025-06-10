@@ -2,11 +2,11 @@
 	import { getCurrentLanguage, toggleCurrentLanguage } from './translator-state.svelte';
 	import type { Language } from './types';
 
-	let {
-		setLanguageCookie
-	}: {
+	export interface LanguageToggleProps {
 		setLanguageCookie: (lang: Language) => void;
-	} = $props();
+	}
+
+	let { setLanguageCookie }: LanguageToggleProps = $props();
 
 	let currentLanguage = $derived.by(getCurrentLanguage);
 </script>

@@ -134,5 +134,18 @@ export const textContent: {
 	'share-us-part-3': {
 		en: 'We are committed to never spending any money on advertising, so we can spend any donations we receive on what really matters. Therefore, we rely on people like you to help us spread the word.',
 		mt: 'Aħna impenjati li qatt ma nużaw flus fuq reklamar, sabiex inkun nistgħu nużaw id-donazzjonijiet li nirċievu fuq dak li verament hu importanti. Għalhekk, nidependu minn nies bħalek li tgħinna nxerrdu l-aħbar.'
+	},
+	//Credits
+	'who-is-part-1': {
+		en: 'There is a lot of work that goes into making Reability.mt possible, and we are very grateful to everyone who has contributed in any way. The following are just some of the people who have helped us get to where we are today.',
+		mt: "Hemm ħafna xogħol li jsir biex Reability.mt tkun possibbli, u aħna grati ħafna lejn kull għenna b'xi mod. Dawn huma biss xi wħud mill-persuni li għenu biex wasalna fejn aħna llum."
+	},
+	'who-is-part-2': {
+		en: 'Reability.mt is a non-profit project, and we are always looking for more people to help us. If you would like to contribute in any way, please',
+		mt: 'Reability.mt hija proġett volontajru, u dejjem infittxu aktar nies li jgħinuna. Jekk tixtieq tikkontribwixxi b’xi mod, jekk jogħġbok'
+	},
+	'who-is-part-3': {
+		en: 'get in touch',
+		mt: 'ikkuntattjana'
 	}
 };

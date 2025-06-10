@@ -82,7 +82,9 @@
 		new Accessibility();
 	});
 
-	let { children }: Omit<LayoutProps, 'data'> = $props();
+	export interface MainLayoutProps extends Omit<LayoutProps, 'data'> {}
+
+	let { children }: MainLayoutProps = $props();
 </script>
 
 <div
@@ -146,12 +148,13 @@
 				>
 					<Arrow />
 				</a>
-				<!-- <h1 class="big-text outlined-text">RE</h1> -->
+				<h1 class="big-text">RE</h1>
 				<div class="relative-2">
 					{#each navigationOrder.filter((order) => order) as title}
 						{#if title.split('/')[1] === currentNavSection}
 							<h1 class="big-text" in:flyIn={direction} out:flyOut={direction}>
-								RE<span class="outlined-text">{pageState.word}</span>
+								<!-- RE -->
+								<span class="outlined-text">{pageState.word}</span>
 							</h1>
 						{/if}
 					{/each}
