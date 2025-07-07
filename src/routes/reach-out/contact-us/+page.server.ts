@@ -1,9 +1,11 @@
 import type { Language } from '$lib/text-translator/types';
-import sgMail from '@sendgrid/mail';
-import { SENDGRID_KEY, SENDGRID_SENDER, SENDGRID_TARGET } from '$env/static/private';
 import { fail } from '@sveltejs/kit';
+import brevo, { TransactionalEmailsApiApiKeys } from '@getbrevo/brevo';
+import { EMAIL_SENDER, EMAIL_CONTACT, BREVO_API_KEY } from '$env/static/private';
 
-sgMail.setApiKey(SENDGRID_KEY);
+const apiInstance = new brevo.TransactionalEmailsApi();
+
+apiInstance.setApiKey(TransactionalEmailsApiApiKeys.apiKey, BREVO_API_KEY);
 
 export interface SendEmailArgs {
 	name: string;
@@ -66,10 +68,10 @@ const externalHTMLTemplate = (args: {
                 </head>
                 <body>
 					<p>Hi ${name},</>
-                    <p>Dan l-email qed jintbghat biex jikonferma li ircevejna l-email tieghek fuq reability.mt bil-messagg:</p>
+                    <p>Dan l-'email' qed jintbgħat biex jikonferma li irċevejna l-'email' tiegħek fuq reability.mt bil-messaġġ:</p>
                     <p>${message}</p>
-                    <p>Inwegbuk mill-iktar fiss possibli fuq l-'email address' li provdejtilna (${emailAddress}).</p>
-                    <p>Jekk jogbok twegibx lura hawn, ghax dan l-message huwa automatiku.</p>
+                    <p>Ser inweġbuk mill-iktar fiss possibli fuq l-indirizz li provdejtilna (${emailAddress}).</p>
+                    <p>Jekk joġbok tweġibx lura hawn, għax dan l-messaġġ huwa automatiku.</p>
                 </body>
             </html>
 
@@ -115,21 +117,28 @@ export const actions = {
 
 		try {
 			const internalMessage = {
-				to: SENDGRID_TARGET,
-				from: SENDGRID_SENDER,
-				subject: `New message on reability.mt - ${subject}`,
+				to: EMAIL_CONTACT,
+				from: EMAIL_SENDER,
+				subject: `New message on reability.mt; Subject - ${subject}`,
 				html: internalHTMLTemplate({
 					name,
 					message,
 					emailAddress
 				})
 			};
-			await sgMail.send(internalMessage);
+			const sendSmtpEmail = new brevo.SendSmtpEmail();
+
+			sendSmtpEmail.subject = internalMessage.subject;
+			sendSmtpEmail.htmlContent = internalMessage.html;
+			sendSmtpEmail.sender = { email: internalMessage.from, name: 'Reability' };
+			sendSmtpEmail.to = [{ email: internalMessage.to }];
+
+			await apiInstance.sendTransacEmail(sendSmtpEmail);
 
 			const externalMessage = {
 				to: emailAddress,
-				from: SENDGRID_SENDER,
-				subject: `Message confirmation on reability.mt - ${subject}`,
+				from: EMAIL_SENDER,
+				subject: `Message confirmation on reability.mt; Subject - ${subject}`,
 				html: externalHTMLTemplate({
 					name,
 					lang,
@@ -137,7 +146,14 @@ export const actions = {
 					emailAddress
 				})
 			};
-			await sgMail.send(externalMessage);
+
+			const sendSmtpEmailExternal = new brevo.SendSmtpEmail();
+			sendSmtpEmailExternal.subject = externalMessage.subject;
+			sendSmtpEmailExternal.htmlContent = externalMessage.html;
+			sendSmtpEmailExternal.sender = { email: externalMessage.from, name: 'Reability' };
+			sendSmtpEmailExternal.to = [{ email: externalMessage.to }];
+
+			await apiInstance.sendTransacEmail(sendSmtpEmailExternal);
 
 			return {
 				success: true

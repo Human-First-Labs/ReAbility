@@ -135,6 +135,26 @@ export const textContent: {
 		en: 'We are committed to never spending any money on advertising, so we can spend any donations we receive on what really matters. Therefore, we rely on people like you to help us spread the word.',
 		mt: 'Aħna impenjati li qatt ma nużaw flus fuq reklamar, sabiex inkun nistgħu nużaw id-donazzjonijiet li nirċievu fuq dak li verament hu importanti. Għalhekk, nidependu minn nies bħalek li tgħinna nxerrdu l-aħbar.'
 	},
+	'share-us-virtual': {
+		en: 'If you want to share this website virtually, click below to copy the link',
+		mt: "Jekk trid taqsam dan is-sit elettroniku b'mod virtwali, ikklikkja hawn taħt biex tikkopja l-link"
+	},
+	'share-us-physical': {
+		en: 'If you want to share this website physically, you can try downloading and printing the poster below. The QR code attached will take people directly to this website.',
+		mt: "Jekk trid taqsam dan is-sit elettroniku b'mod fiżiku, tista' tniżżel u tiprintja l-'Poster' hawn taħt. Il-'QR Code' li għandu miegħu jieħdok dirett f'dan is-sit."
+	},
+	'copy-link': {
+		en: 'Copy Site Link',
+		mt: 'Kkopja l-indirizz tas-Sit'
+	},
+	'thank-you': {
+		en: 'Thank you!',
+		mt: 'Grazzi!'
+	},
+	download: {
+		en: 'Download Poster',
+		mt: "Niżżel il-'Poster'"
+	},
 	//Credits
 	'who-is-part-1': {
 		en: 'There is a lot of work that goes into making Reability.mt possible, and we are very grateful to everyone who has contributed in any way. The following are just some of the people who have helped us get to where we are today.',
@@ -147,5 +167,38 @@ export const textContent: {
 	'who-is-part-3': {
 		en: 'get in touch',
 		mt: 'ikkuntattjana'
+	},
+	//Accessibility Map
+	'accessibility-map-part-1': {
+		en: 'Most life changing injury comes with some form or level of inability of movement. Be it the use of a wheelchair, or simply the inability to walk for very long, this can make it difficult to get around. This makes it important that before commiting to visiting somewhere, you would want to know how accessible it is. Unfortunately, while there is a lot of information out there, it is usually either outdated, not detailed enough, or incomplete.',
+		mt: "Il-biċċa l-kbira tal-korrimenti kbar jiġu b’xi forma ta' limitu fil-moviment. Jekk hu l-użu ta’ siġġijiet tar-roti, jew sempliċiment l-inabbiltà li timxi fit-tul, dan jista' jagħmila diffiċli li toħroġ d-dar. Għalek importanti li qabel ma tiddeċiedi li tmur xi mkien, tkun taf kemm hu aċċessibbli. Sfortunatament, minkejja li hemm ħafna informazzjoni 'online', ħafna drabi din mhix aġġornata, mhix dettaljata biżżejjed jew mhix kompluta."
+	},
+	'accessibility-map-part-2': {
+		en: 'To help with this, we have created a map with the intention of building a list of places with very detailed accessibility information, so that you can know what to expect before you go.',
+		mt: "Biex ngħinu f'dan, aħna ħloqna mappa bil-għan li nibnu lista ta' postijiet b'informazzjoni dettaljata dwar l-aċċessibbiltà, sabiex tkun tista' tipjana sewwa qabel ma tmur."
+	},
+	'accessibility-map-part-3': {
+		en: "Think we ought to add a place you like? Or hoping that we'll review a place you're interested in?",
+		mt: 'Taħseb li għandna nżidu post li jogħġbok? Jew tixtieq li inżidu]		 post li inti interessat fih?'
+	},
+	'accessibility-rating-title': {
+		en: 'Accessibility Rating',
+		mt: "Kwalità ta' Aċċessibbiltà"
+	},
+	'accessibility-map-view-on-map': {
+		en: 'View on Map',
+		mt: 'Ara fuq il-Mappa'
+	},
+	'accessibility-map-show-less': {
+		en: 'Show Less',
+		mt: 'Uri Inqas'
+	},
+	'accessibility-map-show-more': {
+		en: 'Show More',
+		mt: 'Uri Aktar'
+	},
+	'accessibility-map-reach-out': {
+		en: 'Reach out!',
+		mt: 'Ikkuntattjana!'
 	}
 };
