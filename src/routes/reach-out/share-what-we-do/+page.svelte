@@ -13,7 +13,7 @@
 	<p>{getContent('share-us-part-3')}</p>
 	<div class="row gapping">
 		<div class="half-width column">
-			<p>If you want to share this website virtually, click below to copy the link</p>
+			<p>{getContent('share-us-virtual')}</p>
 			<button
 				class="hidden-button basic-button"
 				onclick={() => {
@@ -21,18 +21,17 @@
 					copyBox = true;
 				}}
 			>
-				Copy Site Link
+				{getContent('copy-link')}
 			</button>
 		</div>
 		<div class="half-width column">
 			<p>
-				If you want to share this website physically, you can try downloading and printing the
-				poster below
+				{getContent('share-us-physical')}
 			</p>
-			<a class="basic-a" href="/reach-out/share-what-we-do" download>Download Poster</a>
+			<a class="basic-a" href="/reach-out/share-what-we-do" download>{getContent('download')}</a>
 		</div>
 	</div>
-	<p>Thank you!</p>
+	<p>{getContent('thank-you')}</p>
 </div>
 {#if copyBox}
 	<NotificationBox position="bottom-right" period={2000} onEnd={() => (copyBox = false)}>

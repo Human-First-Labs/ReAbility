@@ -2,7 +2,7 @@
 	import mapboxgl from 'mapbox-gl';
 	import { onMount, onDestroy } from 'svelte';
 	import { slide } from 'svelte/transition';
-	import { chooseLanguage } from '$lib/text-translator/translator-state.svelte';
+	import { chooseLanguage, getContent } from '$lib/text-translator/translator-state.svelte';
 	import { goto } from '$app/navigation';
 	import type { MapItem } from '$lib/content/accessibility-map';
 	import { mapData } from '$lib/content/accessibility-map';
@@ -180,15 +180,10 @@
 
 <div in:slide={{ duration: 500 }} out:slide={{ duration: 500 }} class="fullscreen column">
 	<p>
-		Most life changing injury comes with some form or level of inability of movement. Be it the use
-		of a wheelchair, or simply the inability to walk for very long, this can make it difficult to
-		get around. This makes it important that before commiting to visiting somewhere, you would want
-		to know how accessible it is. Unfortunately, while there is a lot of information out there, it
-		is usually either outdated, not detailed enough, or incomplete.
+		{getContent('accessibility-map-part-1')}
 	</p>
 	<p>
-		To help with this, we have created a map with the intention of building a list of places with
-		very detailed accessibility information, so that you can know what to expect before you go.
+		{getContent('accessibility-map-part-2')}
 	</p>
 	<div id="map-view" class="map-container">
 		<div
@@ -204,7 +199,8 @@
 					<div class="column">
 						<h3 class="no-margin">{chooseLanguage(point.name)}</h3>
 						<p class="no-margin">
-							Overall rating: {point['accessibility-information']['overall-rating-1-5']}/5
+							{getContent('accessibility-rating-title')}
+							{point['accessibility-information']['overall-rating-1-5']}/5
 						</p>
 					</div>
 					<div class="row action-row">
@@ -215,7 +211,7 @@
 									moveMap(point.longitude, point.latitude, 15);
 								}}
 							>
-								View on Map
+								{getContent('accessibility-map-view-on-map')}
 							</button>
 						</a>
 						<button
@@ -231,7 +227,9 @@
 							}}
 						>
 							<!-- {expandedPoint === point.id || quickExpandedPoint === point.id -->
-							{expandedPoint === point.id ? 'Show Less' : 'Show More'}
+							{expandedPoint === point.id
+								? getContent('accessibility-map-show-less')
+								: getContent('accessibility-map-show-more')}
 						</button>
 					</div>
 				</div>
@@ -253,8 +251,8 @@
 		{/each}
 	</div>
 	<p>
-		Think we ought to add a place you like? Or hoping that we'll review a place you're interested
-		in? <a href="/reach-out/contact-us" class="basic-a">Reach out!</a>
+		{getContent('accessibility-map-part-3')}
+		<a href="/reach-out/contact-us" class="basic-a">{getContent('accessibility-map-reach-out')}</a>
 	</p>
 </div>
 
