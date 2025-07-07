@@ -1,5 +1,4 @@
 <script lang="ts">
-	import SupabaseLayout from '$lib/supabase/SupabaseLayout.svelte';
 	import type { LayoutProps } from './$types';
 	import '../lib/toolkit/default-hfl.css';
 	import '../lib/project.css';
@@ -17,8 +16,7 @@
 
 	let { children, data }: LayoutProps = $props();
 
-	const { supabaseData, savedLanguage } = $derived(data);
-	const { session, supabase } = $derived(supabaseData);
+	const { savedLanguage } = $derived(data);
 
 	let currentLanguage = $derived.by(getCurrentLanguage);
 
@@ -46,20 +44,9 @@
 </svelte:head>
 
 {#if currentLanguage}
-	<SupabaseLayout {session} {supabase}>
-		<!-- <div class="fullscreen"> -->
-		<SimpleTopbar {setLanguageCookie} />
-		<MainLayout>
-			{@render children()}
-		</MainLayout>
-		<Footer />
-		<!-- </div> -->
-	</SupabaseLayout>
+	<SimpleTopbar {setLanguageCookie} />
+	<MainLayout>
+		{@render children()}
+	</MainLayout>
+	<Footer />
 {/if}
-
-<style>
-	/* .fullscreen {
-		height: 100dvh;
-		width: 100vw;
-	} */
-</style>

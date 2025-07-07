@@ -2,13 +2,11 @@
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import LanguageToggle from './text-translator/LanguageToggle.svelte';
-	import type { Language } from './text-translator/types';
+	import type { LanguageToggleProps } from './text-translator/LanguageToggle.svelte';
 
-	let {
-		setLanguageCookie
-	}: {
-		setLanguageCookie: (lang: Language) => void;
-	} = $props();
+	export interface SimpleTopbarProps extends LanguageToggleProps {}
+
+	let { setLanguageCookie }: SimpleTopbarProps = $props();
 
 	let ready = $state(false);
 

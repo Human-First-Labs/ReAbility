@@ -1,5 +1,5 @@
+import { textContent } from '$lib/content/text-content';
 import type { Content, ContentName, ContentSentence, Language } from './types';
-import content from '../content/text-content.json';
 
 let currentLanguage = $state<Language>();
 
@@ -26,10 +26,10 @@ export const chooseLanguage = (parsedContent: ContentSentence) => {
 };
 
 export const getContent = (key: ContentName) => {
-	const parsedContent = content as Content;
+	const parsedContent = textContent as Content;
 
 	if (!parsedContent[key]) {
-		return `${key} content is missing`;
+		return `${key.toString()} content is missing`;
 	} else {
 		return chooseLanguage(parsedContent[key]);
 	}

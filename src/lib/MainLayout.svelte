@@ -82,7 +82,9 @@
 		new Accessibility();
 	});
 
-	let { children }: Omit<LayoutProps, 'data'> = $props();
+	export interface MainLayoutProps extends Omit<LayoutProps, 'data'> {}
+
+	let { children }: MainLayoutProps = $props();
 </script>
 
 <div
@@ -120,7 +122,7 @@
 				{/if}
 			{/each}
 		</div>
-		<hr class="hfl-hr" />
+		<hr class="basic-hr" />
 		<div
 			class="row first-row"
 			in:fly={{
@@ -132,10 +134,10 @@
 				x: 50
 			}}
 		>
-			<div class="row center">
+			<div class="row center" style="width: fit-content">
 				<a
 					class={[
-						'hfl-a',
+						'basic-a',
 						'big-icon',
 						'back-icon',
 						'before',
@@ -146,12 +148,13 @@
 				>
 					<Arrow />
 				</a>
-				<!-- <h1 class="big-text outlined-text">RE</h1> -->
+				<h1 class="big-text">RE</h1>
 				<div class="relative-2">
 					{#each navigationOrder.filter((order) => order) as title}
 						{#if title.split('/')[1] === currentNavSection}
 							<h1 class="big-text" in:flyIn={direction} out:flyOut={direction}>
-								RE<span class="outlined-text">{pageState.word}</span>
+								<!-- RE -->
+								<span class="outlined-text">{pageState.word}</span>
 							</h1>
 						{/if}
 					{/each}
@@ -160,7 +163,8 @@
 
 			{#if pageState.main}
 				<a
-					class="big-icon hfl-a"
+					class="big-icon basic-a"
+					style="width: fit-content"
 					href={`${next}`}
 					in:fade={{
 						duration: 500
@@ -210,6 +214,7 @@
 		width: 100%;
 		height: 100%;
 		display: flex;
+		min-height: 100vh;
 	}
 
 	.relative {
@@ -228,6 +233,7 @@
 		display: flex;
 		width: 100%;
 		align-items: center;
+		width: fit-content;
 	}
 
 	.big-text {
@@ -247,7 +253,7 @@
 		max-height: 100%;
 		overflow-y: auto;
 		overflow-x: hidden;
-		padding: 5px 10%;
+		padding: 15px 10%;
 		display: flex;
 		/* background-color: red; */
 	}
@@ -268,18 +274,19 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		width: 100%;
 	}
 
 	.center {
 		display: flex;
 		align-items: center;
-		width: 100%;
 	}
 
 	.before {
 		margin-right: 10px;
 		transition: opacity 0.5s;
 		opacity: 1;
+		width: fit-content;
 	}
 
 	.before-hidden {

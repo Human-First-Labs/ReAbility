@@ -9,11 +9,11 @@
 </script>
 
 <div class="section-layout">
-	{#if page.url.pathname === '/' || page.url.pathname === '/about-us'}
+	{#if page.url.pathname === '/' || page.url.pathname === '/what-is'}
 		<div class="row space-between" in:slide={{ duration: 500 }} out:slide={{ duration: 500 }}>
-			{#if page.url.pathname === '/about-us'}
+			{#if page.url.pathname === '/what-is'}
 				<a
-					class="back-icon small-icon hfl-a"
+					class="back-icon small-icon basic-a"
 					in:fade={{ duration: 500 }}
 					out:fade={{ duration: 500 }}
 					href="/"
@@ -21,20 +21,42 @@
 					<Arrow />
 				</a>
 			{:else}
-				<div class="hidden back-icon">
+				<div class="back-icon" style="visibility: hidden">
 					<Arrow />
 				</div>
 			{/if}
-			<a href="/about-us" class="menu-link hfl-a">
-				<h5 class="menu-item">{getContent('about-us-title')}</h5>
+			<a href="/what-is" class="menu-link basic-a">
+				<h5 class="menu-item">{getContent('what-is-title')}</h5>
 			</a>
 		</div>
 	{/if}
-	{#if page.url.pathname === '/' || page.url.pathname === '/credits'}
+
+	{#if page.url.pathname === '/' || page.url.pathname === '/who-is'}
+		<div class="row space-between" in:slide={{ duration: 500 }} out:slide={{ duration: 500 }}>
+			{#if page.url.pathname === '/who-is'}
+				<a
+					class="back-icon small-icon basic-a"
+					in:fade={{ duration: 500 }}
+					out:fade={{ duration: 500 }}
+					href="/"
+				>
+					<Arrow />
+				</a>
+			{:else}
+				<div class="back-icon" style="visibility: hidden">
+					<Arrow />
+				</div>
+			{/if}
+			<a href="/who-is" class="menu-link basic-a">
+				<h5 class="menu-item">{getContent('who-is-title')}</h5>
+			</a>
+		</div>
+	{/if}
+	<!-- {#if page.url.pathname === '/' || page.url.pathname === '/credits'}
 		<div class="row space-between" in:slide={{ duration: 500 }} out:slide={{ duration: 500 }}>
 			{#if page.url.pathname === '/credits'}
 				<a
-					class="back-icon small-icon hfl-a"
+					class="back-icon small-icon basic-a"
 					in:fade={{ duration: 500 }}
 					out:fade={{ duration: 500 }}
 					href="/"
@@ -42,15 +64,15 @@
 					<Arrow />
 				</a>
 			{:else}
-				<div class="hidden back-icon">
+				<div class="back-icon" style="visibility: hidden">
 					<Arrow />
 				</div>
 			{/if}
-			<a href="/credits" class="menu-link hfl-a">
+			<a href="/credits" class="menu-link basic-a">
 				<h5 class="menu-item">{getContent('credits-title')}</h5>
 			</a>
 		</div>
-	{/if}
+	{/if} -->
 	{@render children()}
 </div>
 

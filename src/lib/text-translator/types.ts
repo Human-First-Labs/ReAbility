@@ -1,8 +1,8 @@
-import content from '../content/text-content.json';
+import type { textContent } from '$lib/content/text-content';
 
 export type Language = 'mt' | 'en';
 
-export type ContentName = keyof typeof content;
+export type ContentName = keyof typeof textContent;
 
 export type ContentSentence = {
 	[key2 in Language]: string;
